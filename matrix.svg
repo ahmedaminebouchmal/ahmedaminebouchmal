@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 340" width="1240" height="340" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+  <style>
+    .hdr  { fill:#5eead4; font-size:9px; letter-spacing:1.6px; }
+    .row  { fill:#c9d1d9; font-size:9.5px; }
+    .sub  { fill:#6e7681; font-size:7.5px; }
+    .cell { fill:#0c1218; stroke:#1c2430; stroke-width:1; }
+    .on   { fill:#0d1f1c; stroke:#5eead4; stroke-width:1.2; }
+    .mid  { fill:#161b22; stroke:#30363d; stroke-width:1; }
+    .dot-on  { fill:#5eead4; }
+    .dot-mid { fill:#f59e0b; }
+    .dot-off { fill:#30363d; }
+    .lbl { fill:#8b949e; font-size:8px; }
+  </style>
+  <defs>
+    <linearGradient id="mxbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#080b11"/><stop offset="100%" stop-color="#070a0f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1240" height="340" rx="10" fill="url(#mxbg)" stroke="#1c2430" stroke-width="1.5"/>
+  <text x="34" y="36" fill="#5eead4" font-size="12" font-weight="700" letter-spacing="2.4">CAPABILITY MATRIX</text>
+  <text x="34" y="53" class="sub">WHERE EACH DOMAIN TOUCHES THE STACK &#183; FILLED = PRIMARY, AMBER = WORKING, OUTLINE = ADJACENT</text>
+
+  <!-- column headers -->
+  <g class="hdr" text-anchor="middle">
+    <text x="470" y="84">SCHEMATIC</text>
+    <text x="590" y="84">PCB</text>
+    <text x="710" y="84">FIRMWARE</text>
+    <text x="830" y="84">PROTOCOL</text>
+    <text x="950" y="84">BACKEND</text>
+    <text x="1080" y="84">APP</text>
+  </g>
+  <line x1="34" y1="94" x2="1206" y2="94" stroke="#1c2430"/>
+
+  <!-- rows -->
+  <g>
+    <!-- RF -->
+    <text x="34" y="122" class="row">RF / WLAN / SDR</text>
+    <text x="34" y="134" class="sub">Wi-Fi, BLE, 802.15.4, sub-GHz</text>
+    <g>
+      <rect x="430" y="106" width="80" height="26" rx="4" class="on"/><circle cx="470" cy="119" r="4" class="dot-on"/>
+      <rect x="550" y="106" width="80" height="26" rx="4" class="on"/><circle cx="590" cy="119" r="4" class="dot-on"/>
+      <rect x="670" y="106" width="80" height="26" rx="4" class="on"/><circle cx="710" cy="119" r="4" class="dot-on"/>
+      <rect x="790" y="106" width="80" height="26" rx="4" class="on"/><circle cx="830" cy="119" r="4" class="dot-on"/>
+      <rect x="910" y="106" width="80" height="26" rx="4" class="mid"/><circle cx="950" cy="119" r="4" class="dot-mid"/>
+      <rect x="1040" y="106" width="80" height="26" rx="4" class="cell"/><circle cx="1080" cy="119" r="4" class="dot-off"/>
+    </g>
+
+    <!-- Automotive -->
+    <text x="34" y="164" class="row">Automotive buses</text>
+    <text x="34" y="176" class="sub">CAN-FD, LIN, K-Line, Auto-Eth</text>
+    <g>
+      <rect x="430" y="148" width="80" height="26" rx="4" class="on"/><circle cx="470" cy="161" r="4" class="dot-on"/>
+      <rect x="550" y="148" width="80" height="26" rx="4" class="on"/><circle cx="590" cy="161" r="4" class="dot-on"/>
+      <rect x="670" y="148" width="80" height="26" rx="4" class="on"/><circle cx="710" cy="161" r="4" class="dot-on"/>
+      <rect x="790" y="148" width="80" height="26" rx="4" class="on"/><circle cx="830" cy="161" r="4" class="dot-on"/>
+      <rect x="910" y="148" width="80" height="26" rx="4" class="on"/><circle cx="950" cy="161" r="4" class="dot-on"/>
+      <rect x="1040" y="148" width="80" height="26" rx="4" class="mid"/><circle cx="1080" cy="161" r="4" class="dot-mid"/>
+    </g>
+
+    <!-- Identity -->
+    <text x="34" y="206" class="row">NFC / RFID / POS</text>
+    <text x="34" y="218" class="sub">ISO-7816, LF/HF, terminals</text>
+    <g>
+      <rect x="430" y="190" width="80" height="26" rx="4" class="on"/><circle cx="470" cy="203" r="4" class="dot-on"/>
+      <rect x="550" y="190" width="80" height="26" rx="4" class="on"/><circle cx="590" cy="203" r="4" class="dot-on"/>
+      <rect x="670" y="190" width="80" height="26" rx="4" class="on"/><circle cx="710" cy="203" r="4" class="dot-on"/>
+      <rect x="790" y="190" width="80" height="26" rx="4" class="on"/><circle cx="830" cy="203" r="4" class="dot-on"/>
+      <rect x="910" y="190" width="80" height="26" rx="4" class="on"/><circle cx="950" cy="203" r="4" class="dot-on"/>
+      <rect x="1040" y="190" width="80" height="26" rx="4" class="on"/><circle cx="1080" cy="203" r="4" class="dot-on"/>
+    </g>
+
+    <!-- Industrial -->
+    <text x="34" y="248" class="row">Industrial / OT</text>
+    <text x="34" y="260" class="sub">RS-485, Modbus, ind. Ethernet</text>
+    <g>
+      <rect x="430" y="232" width="80" height="26" rx="4" class="mid"/><circle cx="470" cy="245" r="4" class="dot-mid"/>
+      <rect x="550" y="232" width="80" height="26" rx="4" class="mid"/><circle cx="590" cy="245" r="4" class="dot-mid"/>
+      <rect x="670" y="232" width="80" height="26" rx="4" class="on"/><circle cx="710" cy="245" r="4" class="dot-on"/>
+      <rect x="790" y="232" width="80" height="26" rx="4" class="on"/><circle cx="830" cy="245" r="4" class="dot-on"/>
+      <rect x="910" y="232" width="80" height="26" rx="4" class="on"/><circle cx="950" cy="245" r="4" class="dot-on"/>
+      <rect x="1040" y="232" width="80" height="26" rx="4" class="mid"/><circle cx="1080" cy="245" r="4" class="dot-mid"/>
+    </g>
+
+    <!-- Vision -->
+    <text x="34" y="290" class="row">Vision / physical</text>
+    <text x="34" y="302" class="sub">IP, PoE, ONVIF, MIPI/GMSL</text>
+    <g>
+      <rect x="430" y="274" width="80" height="26" rx="4" class="cell"/><circle cx="470" cy="287" r="4" class="dot-off"/>
+      <rect x="550" y="274" width="80" height="26" rx="4" class="mid"/><circle cx="590" cy="287" r="4" class="dot-mid"/>
+      <rect x="670" y="274" width="80" height="26" rx="4" class="on"/><circle cx="710" cy="287" r="4" class="dot-on"/>
+      <rect x="790" y="274" width="80" height="26" rx="4" class="on"/><circle cx="830" cy="287" r="4" class="dot-on"/>
+      <rect x="910" y="274" width="80" height="26" rx="4" class="on"/><circle cx="950" cy="287" r="4" class="dot-on"/>
+      <rect x="1040" y="274" width="80" height="26" rx="4" class="on"/><circle cx="1080" cy="287" r="4" class="dot-on"/>
+    </g>
+  </g>
+
+  <!-- sweep -->
+  <rect x="430" y="100" width="2" height="208" fill="#5eead4" opacity="0.25">
+    <animate attributeName="x" values="430;1118;430" dur="8s" repeatCount="indefinite"/>
+  </rect>
+</svg>
