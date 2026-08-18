@@ -17,6 +17,7 @@ frame that arrives 3 ms late.
 | **Embedded** | Firmware on ESP32 / STM32 / nRF, FreeRTOS & Zephyr, BLE/GATT, OTA, embedded Linux |
 | **Vehicle & industrial buses** | CAN / CAN-FD, LIN, K-Line, Automotive Ethernet, protocol analysis and fault reproduction |
 | **RF & identity** | WLAN/SDR, spectrum work, NFC/RFID and contact interfaces |
+| **Hardware & protocol security** | Interface and bus-level testing, traffic analysis, provenance and evidence trails |
 | **EV charging** | OCPP, EVSE/CSMS behaviour, release regression and pre-certification evidence |
 | **Systems software** | Rust · Python · TypeScript · Kotlin · Java |
 
