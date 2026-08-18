@@ -156,7 +156,7 @@
 
   <!-- bottom status -->
   <g font-size="8.5" fill="#3d4d5c">
-    <text x="34" y="392">NODE C &#183; AUTOMOTIVE</text>
+    <text x="34" y="392">CAN-FD BUS ANALYSER</text>
     <text x="230" y="392">ISOLATED &#183; CH 1-16</text>
     <text x="430" y="392">FPGA TIMESTAMP &#183; PRE-BUFFER</text>
     <text x="700" y="392">CONTINUOUS CAPTURE &#8594; NVMe</text>
