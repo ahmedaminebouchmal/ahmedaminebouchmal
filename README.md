@@ -106,14 +106,38 @@ instrument that can reach a vehicle network is not a place for silent automation
 
 ---
 
+## Prototype → manufacture
+
+<div align="center">
+
+<img src="./pipeline.svg" alt="Prototype to manufacture pipeline" width="100%">
+
+</div>
+
+Every gate has an exit criterion. A mistake caught at schematic costs an afternoon; the same
+mistake caught at pilot costs a tooling run and a lead time. Two things that get planned late
+and hurt: **export control** — dual-use RF and direction-finding hardware needs review under
+EU 2021/821 (BAFA in Germany) before it crosses a border — and the step from bench instrument
+to fielded unit, which means ruggedisation and environmental qualification, not just a nicer
+enclosure.
+
+---
+
 ## Mobile & connected product
 
-The instrument is half a product. The other half is what someone holds: **Flutter** and
-**React Native** where cross-platform is right, **Kotlin** and **Swift** where native wins —
-plus the parts that decide whether connected hardware survives real users. BLE provisioning
-that works on a bad day. OTA with a rollback path that has actually been tested. Pairing that
-recovers from interruption. Fleet state that stays honest when a device has been offline for
-a week.
+<div align="center">
+
+<img src="./mobile.svg" alt="Connected product app side" width="100%">
+
+</div>
+
+The instrument is half a product. The other half is what someone holds — and it's usually
+where connected hardware actually fails. Provisioning that survives a bad RF day. OTA with A/B
+slots and a rollback path that has been exercised, not assumed. Pairing that recovers from
+interruption. Fleet state that stays honest when a device has been offline for a week.
+**Flutter** and **React Native** where cross-platform is right; **Kotlin** and **Swift** when
+background BLE has to survive the OS, or MTU and throughput tuning decide whether the product
+works at all.
 
 ---
 
