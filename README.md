@@ -1,10 +1,6 @@
 <div align="center">
 
-# BOUCHMAL
-
-### Embedded & Systems Engineer
-
-*Hardware, protocols, and the software that proves they work.*
+<img src="./stack.svg" alt="Multi-domain instrument platform architecture" width="100%">
 
 <br>
 
@@ -13,98 +9,82 @@
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
 
 ![KiCad](https://img.shields.io/badge/KiCad-314CB0?style=for-the-badge&logo=kicad&logoColor=white)
+![FPGA](https://img.shields.io/badge/FPGA-0091BD?style=for-the-badge&logo=xilinx&logoColor=white)
 ![Zephyr](https://img.shields.io/badge/Zephyr-000000?style=for-the-badge&logo=zephyrproject&logoColor=white)
-![ESP32](https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white)
 ![STM32](https://img.shields.io/badge/STM32-03234B?style=for-the-badge&logo=stmicroelectronics&logoColor=white)
-![Linux](https://img.shields.io/badge/Embedded_Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![ESP32](https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 
 </div>
 
 ---
 
-## The stack I actually work across
+## What I build
 
-```
-   ┌─────────────────────────────────────────────────────────────────────┐
-   │  RF / SDR      NFC / RFID      CAN · CAN-FD · LIN · K-Line          │
-   │       │             │                      │                        │
-   │       └─────────────┴──────────┬───────────┘                        │
-   │                                ▼                                    │
-   │                    ┌───────────────────────┐                        │
-   │                    │   SCHEMATIC → PCB     │   KiCad, DFM review,   │
-   │                    │      → BRING-UP       │   scope + logic probe  │
-   │                    └───────────┬───────────┘                        │
-   │                                ▼                                    │
-   │                    ┌───────────────────────┐                        │
-   │                    │       FIRMWARE        │   Zephyr, FreeRTOS,    │
-   │                    │                       │   BLE/GATT, OTA        │
-   │                    └───────────┬───────────┘                        │
-   │                                ▼                                    │
-   │                    ┌───────────────────────┐                        │
-   │                    │   PROTOCOL / BACKEND  │   OCPP, telemetry,     │
-   │                    │                       │   fault reproduction   │
-   │                    └───────────┬───────────┘                        │
-   │                                ▼                                    │
-   │                         E V I D E N C E                             │
-   │            traces · timestamps · exact versions · replay            │
-   └─────────────────────────────────────────────────────────────────────┘
-```
+Multi-domain instrument platforms — the hardware, the firmware, the synchronised capture
+path, and the evidence model that makes a result defensible.
 
-Most of my work sits where a bug is **physical**: a charge session that won't start, a
-board that fails bring-up, a frame that arrives 3 ms late, a fault that only appears on one
-firmware revision. Software people call it flaky. It usually isn't — it's just not
-reproduced yet.
-
----
+The architecture above is the one I keep returning to: **independently deployable nodes,
+one capability contract, one timestamp domain, one evidence model.** Every node is a
+complete instrument on its own — take Node C to a bench with a laptop and it still
+captures, timestamps and hashes its own evidence. The control plane makes the nodes a
+system without making itself a dependency.
 
 <table>
-<tr>
-<td width="50%" valign="top">
+<tr><td width="33%" valign="top">
 
-### 🔌 Hardware
-Schematic capture and PCB layout in KiCad · DFM review · board bring-up and bench
-validation · custom interface and adapter boards · logic-analyser and oscilloscope
-debugging
+### Node C · automotive
+8–16 isolated CAN-FD channels, LIN, K-Line, Automotive Ethernet, FlexRay expansion,
+FPGA/SoC with DDR and PCIe/NVMe, precision analog alongside high-speed waveform capture,
+hardware timestamps with PPS/PTP.
 
-</td>
-<td width="50%" valign="top">
+</td><td width="33%" valign="top">
 
-### ⚙️ Embedded
-ESP32 · STM32 · nRF · Zephyr and FreeRTOS · BLE/GATT · OTA update paths · embedded Linux,
-device tree, Yocto · low-power and timing-sensitive work
+### RF, identity, vision, OT
+Wideband SDR, Wi-Fi/BLE/802.15.4/sub-GHz, coherent multi-channel RF and direction finding,
+NFC/RFID/contact cards and POS instrumentation, IP/PoE/ONVIF camera work, RS-485 and
+industrial Ethernet.
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+</td><td width="33%" valign="top">
 
-### 🚗 Buses & protocols
-CAN and CAN-FD · LIN · K-Line · Automotive Ethernet · OCPP and EVSE/CSMS behaviour ·
-protocol analysis, fault reproduction, release regression evidence
+### Evidence & safety
+Capture → Source → EvidenceLink with SHA-256 provenance on one correlated timeline.
+Fail-silent, receive-only by default; transmit requires an independent per-channel chain,
+never a shared gate.
 
-</td>
-<td width="50%" valign="top">
-
-### 🛡️ Security & RF
-WLAN and SDR · spectrum work · NFC/RFID and contact interfaces · bus- and interface-level
-testing · provenance, chain-of-custody and evidence trails
-
-</td>
-</tr>
+</td></tr>
 </table>
+
+> **Timing is measured, not claimed.** An FPGA in the design is not evidence of nanosecond
+> accuracy. Latency and jitter get characterised on the bench before either number appears
+> in a document.
 
 ---
 
-## Automation, where it earns its place
+## Two things I care about more than tooling
 
-I build tooling around the hardware work rather than instead of it — deterministic test
-harnesses, replayable capture pipelines, release-regression checks that diff behaviour
-between firmware revisions, and evidence packages a reviewer can actually verify.
+**Reproduce before fixing.** A failure I can't trigger on demand isn't diagnosed — it's a
+guess with a stack trace attached. Most "flaky" hardware bugs are perfectly deterministic
+once the right variable is under control.
 
-The rule I hold to: **anything that decides something must be reproducible and inspectable.**
-A pipeline that produces a verdict nobody can re-derive is worse than no pipeline.
+**Evidence over claims.** Timestamps, traces, exact firmware revisions, measured before and
+after. If a conclusion can't be re-derived by someone else from the stored artefacts, it
+isn't finished.
+
+---
+
+## Layers I work across
+
+| | |
+|---|---|
+| **Hardware** | Schematic capture and PCB layout in KiCad · isolation and power-tree design · DFM review · bring-up, scope and logic-analyser debugging |
+| **Firmware** | STM32 · ESP32 · nRF · Zephyr and FreeRTOS · BLE/GATT · OTA update paths · embedded Linux, device tree, Yocto |
+| **Buses & protocols** | CAN / CAN-FD · LIN · K-Line · Automotive Ethernet · Modbus / RS-485 · OCPP and EVSE/CSMS behaviour |
+| **Mobile** | Flutter · React Native · Kotlin · BLE provisioning and OTA flows for connected products |
+| **Systems** | Rust · C/C++ · Python · TypeScript · deterministic pipelines, replay, regression evidence |
 
 ---
 
@@ -124,7 +104,7 @@ A pipeline that produces a verdict nobody can re-derive is worse than no pipelin
 ### [Refresh cached response headers on RFC 2616 revalidation &nbsp;·&nbsp; #8013](https://github.com/scrapy/scrapy/pull/8013)
 
 Cached responses never refreshed their lifetime after a successful HTTP `304`, so every
-later request re-validated needlessly — the cache was doing the work without giving the
+later request re-validated needlessly — the cache did the work without delivering the
 benefit. Root-caused in the RFC 2616 cache policy, fixed, and covered by a regression test
 that fails on the old behaviour.
 
@@ -132,13 +112,4 @@ that fails on the old behaviour.
 </tr>
 </table>
 
----
-
-## How I work
-
-|  |  |
-|---|---|
-| **Reproduce before fixing** | A failure I can't trigger on demand isn't diagnosed yet — it's a guess with a stack trace. |
-| **Evidence over claims** | Timestamps, traces, exact versions, measured before and after. |
-| **Smallest change that solves it** | No rewrite sold as a fix. |
-| **Deterministic where it counts** | Hardware and protocol work is unforgiving of *usually*. |
+*Further upstream work in the EV-charging and CAN tooling ecosystems is in progress.*
