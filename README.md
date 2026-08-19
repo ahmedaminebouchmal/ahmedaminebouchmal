@@ -129,222 +129,111 @@ None of them is the platform; all of them are nodes on it.
 
 <sub>The board above lights each node in turn on a 24-second cycle, and repaints itself for your
 system light or dark theme. If your OS asks for reduced motion it renders static and fully lit
-instead. Open any node below for the part that does not fit on a card.</sub>
+instead. Each node then gets its own instrument face and full write-up below, A through H.</sub>
 
-<details>
-<summary><b>&nbsp;A — Radio &amp; wireless</b> &nbsp;·&nbsp; <sub>Wi-Fi, BLE, 802.15.4, Thread, sub-GHz, LoRaWAN, wideband SDR</sub></summary>
+<h2>Node A in depth — radio &amp; wireless</h2>
 
-<br>
+<div align="center">
 
-The bench and the building disagree, and the building wins. A link budget that closes on a desk
-meets forty competing radios, a metal rack, a closing door and a human body that moves. Every
-wireless failure I have chased in the field came from that gap, not from the protocol.
+<img src="./node-a.svg" alt="Spectrum and waterfall display with markers and link statistics" width="100%">
 
-<table>
-<tr><td width="50%" valign="top">
+</div>
 
-**What gets measured**
-- RSSI *and* link quality, never RSSI alone
-- retry and drop rate under real contention
-- duty cycle against the regional regulatory limit
-- coexistence with whatever else owns that band
-
-</td><td width="50%" valign="top">
-
-**What is deliberately not assumed**
-- that the antenna in the enclosure behaves like the one on the bench
-- that a certified module makes the *product* certified
-- that a clean spectrum capture on a Sunday means anything on a Monday
-
-</td></tr>
-</table>
-
-Receive is the default path. Anything capable of transmitting is gated by the same permission chain
-as every other node, and bounded by regulatory limits established before a schematic exists rather
-than after.
-
-</details>
-
-<details>
-<summary><b>&nbsp;B — Identity &amp; secure element</b> &nbsp;·&nbsp; <sub>NFC, LF/HF RFID, ISO 14443, ISO 7816, POS, secure boot</sub></summary>
-
-<br>
-
-The rule here is short: **credential material never enters a repository, a log, or a capture.** What
-is recorded is the protocol exchange and its timing — the shape of the conversation, never its
-secret.
-
-That constraint is easy to state and routinely violated in practice, usually by a debug build that
-was never meant to ship, or a trace file attached to a support ticket. So it is enforced at the
-capture layer rather than by discipline: the fields that would carry a secret are not collected.
+**Wi-Fi**, **BLE**, **802.15.4**, **Thread**, **sub-GHz** and **LoRaWAN**, plus wideband SDR capture — measured against the environment the product actually ships into, not the bench it was designed on.
 
 <table>
-<tr><td width="30%"><b>secure boot</b></td><td>chain established at manufacture, not retrofitted after the first field incident</td></tr>
-<tr><td><b>signed OTA</b></td><td>with a rollback path that has actually been exercised, not merely designed</td></tr>
-<tr><td><b>debug lockdown</b></td><td>JTAG/SWD closed in production, provisioned on the line</td></tr>
-<tr><td><b>key storage</b></td><td>secure element or equivalent — never a constant in firmware</td></tr>
+<tr>
+<td width="34%" valign="top">
+
+#### The building wins
+A link budget that closes on a desk meets forty competing radios, a metal rack, a closing
+door and a human body that moves. Every wireless failure I have chased in the field came
+from that gap, not from the protocol.
+
+</td>
+<td width="33%" valign="top">
+
+#### RSSI is not link health
+Signal strength alone says nothing about whether packets arrive. Retry rate, packet error
+rate and link quality get recorded together, because a strong signal with 30% retries is a
+broken link that looks healthy.
+
+</td>
+<td width="33%" valign="top">
+
+#### Regulatory limits shape the BOM
+Duty cycle and radiated power are bounded against the regional limit before a schematic
+exists. A certified module does not make the product certified — the enclosure and antenna
+are part of the system under test.
+
+</td>
+</tr>
 </table>
 
-</details>
-
 <details>
-<summary><b>&nbsp;C — Vehicle networks (flagship)</b> &nbsp;·&nbsp; <sub>CAN-FD ×8–16 isolated, LIN, K-Line, Automotive Ethernet, FlexRay, UDS</sub></summary>
+<summary><b>&nbsp;What a spectrum capture is actually for</b></summary>
 
 <br>
 
-The electrically hardest node, and the reason the transmit-permission chain exists at all. Sixteen
-isolated channels means sixteen independent gates — replicated, never shared, because a shared gate
-turns one channel fault into a multi-bus event.
-
-Continuous capture runs to NVMe with hardware timestamps from a disciplined domain. Not host clocks.
-Not interpolation. The detailed instrument view, the permission chain and the capture contract are
-in the **Node C in depth** section further down — this node has the deepest treatment on the page
-because it has the least margin for a wrong assumption.
-
-</details>
-
-<details>
-<summary><b>&nbsp;D — Control &amp; evidence plane</b> &nbsp;·&nbsp; <sub>registry, time authority, authorisation, segmentation, health</sub></summary>
-
-<br>
-
-The only optional node on the board, and the most consequential design decision on this page.
-
-Every other node works with this one switched off. It is drawn dashed in the diagram for exactly
-that reason — deliberately absent from the minimum viable system rather than missing from it. When
-present it supplies registry, time authority, authorisation, segmentation and health, and turns
-independent instruments into one correlated timeline.
-
-**It earns its place by correlating. It never earns it by being required.** The moment a node cannot
-function without it, the platform has failed at the exact moment it matters most: one engineer, one
-box, one customer site.
-
-</details>
-
-<details>
-<summary><b>&nbsp;E — Vision &amp; physical</b> &nbsp;·&nbsp; <sub>IP, PoE, ONVIF, RTSP, MIPI CSI-2, GMSL, edge inference</sub></summary>
-
-<br>
-
-A camera event is only worth capturing if it lands on the same timeline as the bus frame and the RF
-observation. Otherwise it is footage, and footage is not evidence — it is something you scrub
-through afterwards hoping to find the moment.
-
-Frame pacing and drop policy are specified rather than inherited from whatever the pipeline happens
-to do under load. A dropped frame nobody recorded as dropped is worse than a gap, because it makes
-the timeline look complete when it is not.
-
-Hardware-synced triggering is what makes *the camera saw this at the same instant the bus carried
-that* a defensible statement instead of a suggestive one.
-
-</details>
-
-<details>
-<summary><b>&nbsp;F — Industrial &amp; OT</b> &nbsp;·&nbsp; <sub>RS-485, Modbus RTU/TCP, OPC-UA, PROFINET, MQTT, Sparkplug B</sub></summary>
-
-<br>
-
-**A register number is not a meaning.** Half the real work on an industrial integration is
-recovering what a PLC tag actually represents on the floor — and that knowledge usually lives in a
-person, not a document. Skipping that step is how a dashboard ends up confidently reporting the
-wrong quantity in the right units.
-
-The engineering constraints that follow:
-
-- **store-and-forward**, because the uplink will drop and the line will not stop for it
-- **watchdog and safe restart**, because an edge gateway that wedges silently is worse than one that
-  crashes loudly
-- **isolated RS-485, surge protection, 4–20 mA, 24 V I/O** — the physical layer of a factory is
-  hostile in ways an office network never is
-- **DIN-rail and sealed builds**, because the enclosure is part of the specification
-
-</details>
-
-<details>
-<summary><b>&nbsp;G — Coherent RF &amp; direction finding</b> &nbsp;·&nbsp; <sub>multi-channel coherent SDR, array sensing, bearing estimation</sub></summary>
-
-<br>
-
-**Coherence is a hardware property, not a software claim.** Channels either share a clock and a
-calibrated phase reference or they do not. If they do not, the bearing the algorithm produces is
-decoration, and the error bar next to it is decoration too.
-
-This node carries an **export-control classification question before it carries a schematic**.
-Dual-use RF, spectrum monitoring and direction-finding capability fall under **EU Regulation
-2021/821**, administered in Germany by **BAFA**. That classification decides whether a unit can
-cross a border, be demonstrated abroad, or join a multi-country consortium — and it turns on what
-the hardware *can do*, not how it is described. The answer shapes the bill of materials, so it is
-asked first. Discovering it after a board revision is expensive in both money and calendar.
-
-</details>
-
-<details>
-<summary><b>&nbsp;H — Hardware &amp; mixed-signal</b> &nbsp;·&nbsp; <sub>24-bit simultaneous ADC, FPGA timing, side-channel, power characterisation</sub></summary>
-
-<br>
-
-The node where the measurement split matters most, and where specification sheets most often become
-fiction.
+Not for a screenshot. The capture exists to answer one of three questions:
 
 <table>
-<tr><td width="50%" valign="top">
-
-**24-bit simultaneous-sampling ADC**
-
-Right for supply rails, differential steady-state behaviour and power characterisation.
-
-Useless for nanosecond edge ringing.
-
-</td><td width="50%" valign="top">
-
-**High-speed waveform capture**
-
-Right for edge rate, ringing, jitter and eye behaviour.
-
-Wrong for low-noise DC precision.
-
-</td></tr>
+<tr><td width="30%"><b>is the band usable</b></td><td>occupancy and noise floor over time, not a single sweep on a quiet Sunday</td></tr>
+<tr><td><b>who else is here</b></td><td>separating Wi-Fi from non-Wi-Fi emitters — the microwave, the lighting ballast, the neighbouring plant</td></tr>
+<tr><td><b>is it us</b></td><td>adjacent-channel leakage and spurious emissions from our own hardware, which is the answer more often than anyone expects</td></tr>
 </table>
 
-They are different subsystems with different silicon, and quoting one instrument number for the
-other job is the most common way a datasheet stops being true. Equally: an FPGA in a block diagram
-is not evidence of nanosecond accuracy. Latency and jitter get characterised on the bench against a
-disciplined reference before either number appears in any document.
+Max-hold over minutes beats peak-detect over milliseconds, because interference is usually intermittent and the intermittent case is the one that ships and then fails.
 
 </details>
 
+
+---
+
+<h2>Node B in depth — identity &amp; secure element</h2>
+
+<div align="center">
+
+<img src="./node-b.svg" alt="Contactless field, load modulation envelope and APDU exchange timing" width="100%">
+
+</div>
+
+**NFC**, **LF/HF RFID**, **ISO 14443**, **ISO 7816** contact cards, POS and debug interfaces — captured as protocol shape and timing, never as content.
+
+<table>
+<tr>
+<td width="34%" valign="top">
+
+#### No secret is ever recorded
+Credential material does not enter a repository, a log, or a capture. The fields that would carry a secret are not collected at all — enforced at the capture layer, because discipline alone loses to a debug build that was never meant to ship.
+
+</td>
+<td width="33%" valign="top">
+
+#### Timing is the diagnostic
+Frame waiting time, response latency and WTX requests tell you what is wrong with an interface without ever needing the payload. A card that answers late under load is a different fault from one that answers wrongly.
+
+</td>
+<td width="33%" valign="top">
+
+#### Trust is provisioned, not retrofitted
+Secure boot, signed OTA with an exercised rollback path, a locked debug port and keys in a secure element are established on the production line. Adding them after the first field incident means re-touching every unit already shipped.
+
+</td>
+</tr>
+</table>
+
 <details>
-<summary><b>&nbsp;Why a mandatory control plane would have been the easier — and wrong — design</b></summary>
+<summary><b>&nbsp;The rollback path nobody exercises</b></summary>
 
 <br>
 
-A central plane that owns time, identity and storage is simpler to build. Every node gets thinner,
-the schema lives in one place, and you never reconcile two clocks. The cost only appears later:
+Almost every connected product has A/B slots. Far fewer have actually pulled power midway through a write, deliberately corrupted the image, and confirmed the unit still boots the old slot and reports why.
 
-<table>
-<tr><td width="50%" valign="top">
-
-**What you gain by centralising**
-- one clock, one schema, one storage path
-- thinner nodes, cheaper BOM per unit
-- a single place to reason about identity
-
-</td><td width="50%" valign="top">
-
-**What you lose, permanently**
-- a node alone on a bench becomes useless
-- the plane becomes the single point of failure
-- every new node negotiates with a central design
-- field work needs the whole rack, not one box
-
-</td></tr>
-</table>
-
-The deciding case is the ordinary one: an engineer takes a single node to a vehicle, a substation or
-a customer site. If that requires the rack, the platform has failed at the exact moment it matters
-most. So the plane earns its place by adding correlation — never by being required.
+Until that test has been run on real hardware, A/B is a diagram rather than a recovery mechanism — and the first time it matters is the worst possible time to discover the difference.
 
 </details>
+
 
 ---
 
@@ -434,6 +323,251 @@ earlier one, both remain re-derivable from the same stored bytes — which is th
 evidence trail and a log file.
 
 </details>
+
+---
+
+<h2>Node D in depth — control &amp; evidence plane</h2>
+
+<div align="center">
+
+<img src="./node-d.svg" alt="Node registry, PTP offsets and the argument for keeping the plane optional" width="100%">
+
+</div>
+
+Registry, time authority, authorisation, segmentation and health. **The only optional node on the board**, and the design decision the rest of the platform is built around.
+
+<table>
+<tr>
+<td width="34%" valign="top">
+
+#### Removing it changes nothing essential
+Capture continues. Timestamping continues, from the local disciplined source. Hashing continues. Evidence stays valid. The single thing lost is cross-domain correlation — which is exactly what this node is for and all it is for.
+
+</td>
+<td width="33%" valign="top">
+
+#### Unreachable is a node state
+A node that left the rack is not a system fault. It is a node in SILO mode whose evidence will merge on return. Collapsing those two things into one alarm is how a platform teaches its operators to ignore alarms.
+
+</td>
+<td width="33%" valign="top">
+
+#### The easier design was rejected
+One clock, one schema, one storage path, thinner nodes, cheaper per unit — and a plane that becomes the single point of failure, with every new node forced to negotiate against a central design.
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><b>&nbsp;The deciding case is the ordinary one</b></summary>
+
+<br>
+
+One engineer, one box, one customer site.
+
+If that requires the whole rack, the platform has failed at the exact moment it matters most. Everything else about the architecture — the uniform contract, the per-node evidence chain, the local time source — exists so that sentence stays true.
+
+It also makes the roster open-ended. A ninth node negotiates with a five-endpoint contract, not with a central schema and its owners.
+
+</details>
+
+
+---
+
+<h2>Node E in depth — vision &amp; physical</h2>
+
+<div align="center">
+
+<img src="./node-e.svg" alt="Frame timeline with logged drops and three domains correlated on one clock" width="100%">
+
+</div>
+
+**MIPI CSI-2**, **GMSL**, **IP**, **PoE**, **ONVIF** and **RTSP** with edge inference — and a hardware-synced trigger, which is what separates evidence from footage.
+
+<table>
+<tr>
+<td width="34%" valign="top">
+
+#### Every gap is recorded as a gap
+A dropped frame nobody logged as dropped is worse than a hole in the record: it makes the timeline look complete when it is not. Drops and late frames are first-class entries, not silent omissions.
+
+</td>
+<td width="33%" valign="top">
+
+#### Frame pacing is specified
+Not inherited from whatever the pipeline happens to do under load. Under pressure a system must degrade the way you chose, not the way the buffer chose.
+
+</td>
+<td width="33%" valign="top">
+
+#### One clock makes the claim
+A camera event 0.4 ms from a bus frame and an RF burst, on one timebase, is a correlated observation. The same three on three host clocks are three recordings that happened the same afternoon.
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><b>&nbsp;Why this node exists at all</b></summary>
+
+<br>
+
+A camera on its own is a well-solved problem and I would not build one. This node exists because a visual event is frequently the only human-legible anchor in an otherwise abstract timeline.
+
+When a bus error, an RF burst and a physical movement land within a millisecond of each other, the video is what lets a person confirm the machine was right — and what lets them catch it when the machine was wrong.
+
+</details>
+
+
+---
+
+<h2>Node F in depth — industrial &amp; OT</h2>
+
+<div align="center">
+
+<img src="./node-f.svg" alt="Register map with recovered meanings, line trend and store-and-forward status" width="100%">
+
+</div>
+
+**Modbus RTU/TCP**, **OPC-UA**, **PROFINET**, **MQTT** and **Sparkplug B** over isolated **RS-485**, 4–20 mA and 24 V I/O — with the physical layer of a factory taken seriously.
+
+<table>
+<tr>
+<td width="34%" valign="top">
+
+#### A register number is not a meaning
+Half the real work is recovering what a tag represents on the floor, and that knowledge usually lives in a person rather than the PLC project file. An unmapped register is recorded as unmapped, never guessed into a unit.
+
+</td>
+<td width="33%" valign="top">
+
+#### The uplink dropping is expected
+Store-and-forward with hours of local buffer, a watchdog and a safe restart. The line does not stop because the network did, and an edge gateway that wedges silently is worse than one that crashes loudly.
+
+</td>
+<td width="33%" valign="top">
+
+#### Raw and scaled are both kept
+Scaling factors get revised when someone finally finds the right document. If only the scaled value was stored, every historical number is now wrong and unrecoverable.
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><b>&nbsp;How a dashboard ends up confidently wrong</b></summary>
+
+<br>
+
+The failure is almost never a broken connection — those are loud and get fixed. It is a register read correctly, scaled with an assumed factor, labelled with a plausible name, and plotted on a chart that nobody questions for eleven months.
+
+<table>
+<tr><td width="34%"><b>guessed scaling</b></td><td>a raw 7412 becomes 74.12&#176;C or 7412 rpm depending on an assumption nobody wrote down</td></tr>
+<tr><td><b>counter wrap</b></td><td>a 16-bit production counter wraps at 65535 and the daily total silently goes negative once a week</td></tr>
+<tr><td><b>state enums</b></td><td>vendor-specific and undocumented; "3" means RUN on this drive and FAULT on the identical one next to it</td></tr>
+</table>
+
+All three are prevented the same way: record the raw value, record the transformation separately, and mark anything unconfirmed as unconfirmed.
+
+</details>
+
+
+---
+
+<h2>Node G in depth — coherent RF &amp; direction finding</h2>
+
+<div align="center">
+
+<img src="./node-g.svg" alt="Polar bearing display with uncertainty wedge and per-channel phase residuals" width="100%">
+
+</div>
+
+Multi-channel coherent SDR, array sensing and bearing estimation — with a shared clock, a calibrated phase reference, and an **export-control classification asked before the schematic**.
+
+<table>
+<tr>
+<td width="34%" valign="top">
+
+#### Coherence is hardware, not software
+Channels either share a clock and a calibrated phase reference or they do not. If they do not, the bearing the algorithm produces is decoration, and the error bar beside it is decoration too.
+
+</td>
+<td width="33%" valign="top">
+
+#### The achieved bound sits next to the theoretical one
+Cramér–Rao says ±2.1°; the array achieves ±3.2°. Publishing both is the point. A bearing without an error bar is not a measurement, and a gap that is hidden becomes a surprise in the field.
+
+</td>
+<td width="33%" valign="top">
+
+#### Calibration ages
+Phase residual drifts with enclosure temperature. That is tracked and recalibration is scheduled rather than discovered — a DF system that was accurate at commissioning tells you nothing about today.
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><b>&nbsp;Export control comes before the bill of materials</b></summary>
+
+<br>
+
+Dual-use RF, spectrum monitoring and direction-finding capability fall under **EU Regulation 2021/821**, administered in Germany by **BAFA**.
+
+The classification decides whether a unit can legally cross a border, be demonstrated abroad, or be contributed to a multi-country consortium. It turns on what the hardware *is capable of* — channel count, bandwidth, coherence — not on how it is marketed or what it is intended for.
+
+That means it constrains the BOM. Discovering it after Rev B costs a respin and a lead time, which is why it is the first question on this node rather than the last.
+
+</details>
+
+
+---
+
+<h2>Node H in depth — hardware &amp; mixed-signal</h2>
+
+<div align="center">
+
+<img src="./node-h.svg" alt="Slow precision rails, fast edge capture and a measured noise floor" width="100%">
+
+</div>
+
+Synchronised precision acquisition: a 24-bit simultaneous-sampling converter and a high-speed capture path, sharing one FPGA timebase and one trigger — **two subsystems, deliberately not one**.
+
+<table>
+<tr>
+<td width="34%" valign="top">
+
+#### The split is not optional
+A 24-bit sigma-delta is right for supply rails, load steps and power characterisation, and useless for nanosecond edge ringing. Quoting one instrument number for the other job is the most common way a datasheet stops being true.
+
+</td>
+<td width="33%" valign="top">
+
+#### The gap is published
+Achieved noise floor −118 dBFS against a −124 dBFS claim. Six decibels, stated rather than rounded away. A specification without a measured counterpart is a marketing number.
+
+</td>
+<td width="33%" valign="top">
+
+#### One trigger, one timebase
+Both paths fire together. That is what allows a rail transient and a bus error to be placed on the same timeline and reasoned about as one event instead of two coincidences.
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><b>&nbsp;An FPGA in a block diagram is not evidence</b></summary>
+
+<br>
+
+It is common to see nanosecond accuracy claimed on the strength of an FPGA appearing somewhere in the architecture. The FPGA makes the accuracy *possible*; it does not demonstrate it.
+
+What demonstrates it: latency and jitter characterised on the bench against a disciplined reference, across temperature, with the numbers recorded before they appear in any document. Until that has been done, the correct value to publish is "not characterised" — which is a far better answer than a number that turns out to be wrong in front of a customer.
+
+</details>
+
 
 ---
 
