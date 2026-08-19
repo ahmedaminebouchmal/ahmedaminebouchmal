@@ -135,6 +135,198 @@ Energy and charging, automation pipelines and the mobile layer are not separate 
 they attach to the same contract and land on the same timeline. Each gets its own section below.
 None of them is the platform; all of them are nodes on it.
 
+<div align="center">
+
+<img src="./ecosystem.svg" alt="Every node in the ecosystem, each lighting in turn" width="100%">
+
+</div>
+
+<sub>The board above lights each node in turn on a 24-second cycle, and repaints itself for your
+system light or dark theme. If your OS asks for reduced motion it renders static and fully lit
+instead. Open any node below for the part that does not fit on a card.</sub>
+
+<details>
+<summary><b>&nbsp;A — Radio &amp; wireless</b> &nbsp;·&nbsp; <sub>Wi-Fi, BLE, 802.15.4, Thread, sub-GHz, LoRaWAN, wideband SDR</sub></summary>
+
+<br>
+
+The bench and the building disagree, and the building wins. A link budget that closes on a desk
+meets forty competing radios, a metal rack, a closing door and a human body that moves. Every
+wireless failure I have chased in the field came from that gap, not from the protocol.
+
+<table>
+<tr><td width="50%" valign="top">
+
+**What gets measured**
+- RSSI *and* link quality, never RSSI alone
+- retry and drop rate under real contention
+- duty cycle against the regional regulatory limit
+- coexistence with whatever else owns that band
+
+</td><td width="50%" valign="top">
+
+**What is deliberately not assumed**
+- that the antenna in the enclosure behaves like the one on the bench
+- that a certified module makes the *product* certified
+- that a clean spectrum capture on a Sunday means anything on a Monday
+
+</td></tr>
+</table>
+
+Receive is the default path. Anything capable of transmitting is gated by the same permission chain
+as every other node, and bounded by regulatory limits established before a schematic exists rather
+than after.
+
+</details>
+
+<details>
+<summary><b>&nbsp;B — Identity &amp; secure element</b> &nbsp;·&nbsp; <sub>NFC, LF/HF RFID, ISO 14443, ISO 7816, POS, secure boot</sub></summary>
+
+<br>
+
+The rule here is short: **credential material never enters a repository, a log, or a capture.** What
+is recorded is the protocol exchange and its timing — the shape of the conversation, never its
+secret.
+
+That constraint is easy to state and routinely violated in practice, usually by a debug build that
+was never meant to ship, or a trace file attached to a support ticket. So it is enforced at the
+capture layer rather than by discipline: the fields that would carry a secret are not collected.
+
+<table>
+<tr><td width="30%"><b>secure boot</b></td><td>chain established at manufacture, not retrofitted after the first field incident</td></tr>
+<tr><td><b>signed OTA</b></td><td>with a rollback path that has actually been exercised, not merely designed</td></tr>
+<tr><td><b>debug lockdown</b></td><td>JTAG/SWD closed in production, provisioned on the line</td></tr>
+<tr><td><b>key storage</b></td><td>secure element or equivalent — never a constant in firmware</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary><b>&nbsp;C — Vehicle networks (flagship)</b> &nbsp;·&nbsp; <sub>CAN-FD ×8–16 isolated, LIN, K-Line, Automotive Ethernet, FlexRay, UDS</sub></summary>
+
+<br>
+
+The electrically hardest node, and the reason the transmit-permission chain exists at all. Sixteen
+isolated channels means sixteen independent gates — replicated, never shared, because a shared gate
+turns one channel fault into a multi-bus event.
+
+Continuous capture runs to NVMe with hardware timestamps from a disciplined domain. Not host clocks.
+Not interpolation. The detailed instrument view, the permission chain and the capture contract are
+in the **Node C in depth** section further down — this node has the deepest treatment on the page
+because it has the least margin for a wrong assumption.
+
+</details>
+
+<details>
+<summary><b>&nbsp;D — Control &amp; evidence plane</b> &nbsp;·&nbsp; <sub>registry, time authority, authorisation, segmentation, health</sub></summary>
+
+<br>
+
+The only optional node on the board, and the most consequential design decision on this page.
+
+Every other node works with this one switched off. It is drawn dashed in the diagram for exactly
+that reason — deliberately absent from the minimum viable system rather than missing from it. When
+present it supplies registry, time authority, authorisation, segmentation and health, and turns
+independent instruments into one correlated timeline.
+
+**It earns its place by correlating. It never earns it by being required.** The moment a node cannot
+function without it, the platform has failed at the exact moment it matters most: one engineer, one
+box, one customer site.
+
+</details>
+
+<details>
+<summary><b>&nbsp;E — Vision &amp; physical</b> &nbsp;·&nbsp; <sub>IP, PoE, ONVIF, RTSP, MIPI CSI-2, GMSL, edge inference</sub></summary>
+
+<br>
+
+A camera event is only worth capturing if it lands on the same timeline as the bus frame and the RF
+observation. Otherwise it is footage, and footage is not evidence — it is something you scrub
+through afterwards hoping to find the moment.
+
+Frame pacing and drop policy are specified rather than inherited from whatever the pipeline happens
+to do under load. A dropped frame nobody recorded as dropped is worse than a gap, because it makes
+the timeline look complete when it is not.
+
+Hardware-synced triggering is what makes *the camera saw this at the same instant the bus carried
+that* a defensible statement instead of a suggestive one.
+
+</details>
+
+<details>
+<summary><b>&nbsp;F — Industrial &amp; OT</b> &nbsp;·&nbsp; <sub>RS-485, Modbus RTU/TCP, OPC-UA, PROFINET, MQTT, Sparkplug B</sub></summary>
+
+<br>
+
+**A register number is not a meaning.** Half the real work on an industrial integration is
+recovering what a PLC tag actually represents on the floor — and that knowledge usually lives in a
+person, not a document. Skipping that step is how a dashboard ends up confidently reporting the
+wrong quantity in the right units.
+
+The engineering constraints that follow:
+
+- **store-and-forward**, because the uplink will drop and the line will not stop for it
+- **watchdog and safe restart**, because an edge gateway that wedges silently is worse than one that
+  crashes loudly
+- **isolated RS-485, surge protection, 4–20 mA, 24 V I/O** — the physical layer of a factory is
+  hostile in ways an office network never is
+- **DIN-rail and sealed builds**, because the enclosure is part of the specification
+
+</details>
+
+<details>
+<summary><b>&nbsp;G — Coherent RF &amp; direction finding</b> &nbsp;·&nbsp; <sub>multi-channel coherent SDR, array sensing, bearing estimation</sub></summary>
+
+<br>
+
+**Coherence is a hardware property, not a software claim.** Channels either share a clock and a
+calibrated phase reference or they do not. If they do not, the bearing the algorithm produces is
+decoration, and the error bar next to it is decoration too.
+
+This node carries an **export-control classification question before it carries a schematic**.
+Dual-use RF, spectrum monitoring and direction-finding capability fall under **EU Regulation
+2021/821**, administered in Germany by **BAFA**. That classification decides whether a unit can
+cross a border, be demonstrated abroad, or join a multi-country consortium — and it turns on what
+the hardware *can do*, not how it is described. The answer shapes the bill of materials, so it is
+asked first. Discovering it after a board revision is expensive in both money and calendar.
+
+</details>
+
+<details>
+<summary><b>&nbsp;H — Hardware &amp; mixed-signal</b> &nbsp;·&nbsp; <sub>24-bit simultaneous ADC, FPGA timing, side-channel, power characterisation</sub></summary>
+
+<br>
+
+The node where the measurement split matters most, and where specification sheets most often become
+fiction.
+
+<table>
+<tr><td width="50%" valign="top">
+
+**24-bit simultaneous-sampling ADC**
+
+Right for supply rails, differential steady-state behaviour and power characterisation.
+
+Useless for nanosecond edge ringing.
+
+</td><td width="50%" valign="top">
+
+**High-speed waveform capture**
+
+Right for edge rate, ringing, jitter and eye behaviour.
+
+Wrong for low-noise DC precision.
+
+</td></tr>
+</table>
+
+They are different subsystems with different silicon, and quoting one instrument number for the
+other job is the most common way a datasheet stops being true. Equally: an FPGA in a block diagram
+is not evidence of nanosecond accuracy. Latency and jitter get characterised on the bench against a
+disciplined reference before either number appears in any document.
+
+</details>
+
 <details>
 <summary><b>&nbsp;Why a mandatory control plane would have been the easier — and wrong — design</b></summary>
 
@@ -170,7 +362,7 @@ most. So the plane earns its place by adding correlation — never by being requ
 
 ---
 
-<h2>Signal integrity &amp; vehicle networks</h2>
+<h2>Node C in depth — signal integrity &amp; vehicle networks</h2>
 
 <div align="center">
 
