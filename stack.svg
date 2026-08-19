@@ -74,6 +74,7 @@
   <text x="775" y="312" fill="#8b949e" font-size="11" font-weight="700" text-anchor="middle">SILO MODE</text>
   <text x="775" y="329" fill="#6e7681" font-size="8.5" text-anchor="middle">any node alone &#8594; host &#183; Node D not required</text>
   <text x="775" y="366" fill="#58657a" font-size="8" text-anchor="middle" letter-spacing="1.5">EVERY NODE IS A COMPLETE INSTRUMENT</text>
+  <text x="1192" y="392" fill="#58657a" font-size="8" text-anchor="end" letter-spacing="1.5">ROSTER OPEN &#183; A NEW NODE ADDS WITHOUT REDESIGNING THE OTHERS</text>
 
   <!-- ══ NODES with live instrument visuals ══ -->
   <!-- A : spectrum analyser -->
