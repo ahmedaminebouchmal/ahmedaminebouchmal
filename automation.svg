@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 480" width="1240" height="480" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+  <style>
+    .h1  { fill:#a78bfa; font-size:12px; font-weight:700; letter-spacing:2.4px; }
+    .h2  { fill:#e6edf3; font-size:9px; font-weight:700; letter-spacing:1.6px; }
+    .sub { fill:#6e7681; font-size:7.5px; letter-spacing:1.2px; }
+    .ttl { fill:#e6edf3; font-size:8.4px; font-weight:700; letter-spacing:1.1px; }
+    .txt { fill:#c9d1d9; font-size:7.4px; }
+    .dim { fill:#7d8590; font-size:7.2px; }
+    .box { fill:#0d1117; stroke:#21262d; stroke-width:1; }
+    .vio { fill:#0f0b1a; stroke:#4c1d95; stroke-width:1; }
+    .red { fill:#170a0a; stroke:#7f1d1d; stroke-width:1; }
+  </style>
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#090c12"/><stop offset="100%" stop-color="#0a0d13"/>
+    </linearGradient>
+    <marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#6e7681"/></marker>
+    <marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#f87171"/></marker>
+    <marker id="a3" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#fbbf24"/></marker>
+  </defs>
+
+  <rect width="1240" height="480" rx="10" fill="url(#abg)" stroke="#1c2430" stroke-width="1.5"/>
+  <text x="34" y="34" class="h1">AUTOMATION &amp; DATA PIPELINES</text>
+  <text x="34" y="50" class="sub">MACHINE TELEMETRY &#183; DOCUMENTS &#183; THIRD-PARTY APIS &#8594; VALIDATED, TYPED, TRACEABLE RECORDS &#8212; WITH THE FAILURE PATHS BUILT IN</text>
+  <line x1="34" y1="62" x2="1206" y2="62" stroke="#1c2430"/>
+
+  <!-- ===== sources ===== -->
+  <rect x="34" y="82" width="170" height="120" rx="5" class="box"/>
+  <text x="46" y="100" class="ttl">SOURCES</text>
+  <g>
+    <text x="46" y="118" class="txt">PLC &#183; Modbus &#183; OPC-UA</text>
+    <text x="46" y="131" class="txt">MQTT &#183; Sparkplug B</text>
+    <text x="46" y="144" class="txt">PDF &#183; CSV &#183; EDI &#183; XML</text>
+    <text x="46" y="157" class="txt">ERP &#183; REST &#183; SFTP &#183; mail</text>
+    <text x="46" y="172" class="dim">rate-limited, unreliable,</text>
+    <text x="46" y="183" class="dim">and occasionally lying</text>
+    <text x="46" y="194" class="dim">about their own schema</text>
+  </g>
+
+  <line x1="204" y1="142" x2="222" y2="142" stroke="#6e7681" marker-end="url(#a1)"/>
+
+  <!-- ===== queue ===== -->
+  <rect x="228" y="82" width="104" height="120" rx="5" class="vio"/>
+  <text x="240" y="100" class="ttl">QUEUE</text>
+  <text x="240" y="113" class="dim">at-least-once</text>
+  <g fill="#a78bfa" opacity="0.75">
+    <rect x="240" y="182" width="80" height="7" rx="1.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.2s" repeatCount="indefinite"/></rect>
+    <rect x="240" y="172" width="80" height="7" rx="1.5"><animate attributeName="opacity" values="0.9;0.2;0.9" dur="2.6s" repeatCount="indefinite"/></rect>
+    <rect x="240" y="162" width="80" height="7" rx="1.5"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.1s" repeatCount="indefinite"/></rect>
+    <rect x="240" y="152" width="80" height="7" rx="1.5" opacity="0.35"/>
+    <rect x="240" y="142" width="80" height="7" rx="1.5" opacity="0.2"/>
+  </g>
+  <text x="240" y="131" class="dim">depth 412</text>
+
+  <line x1="332" y1="142" x2="350" y2="142" stroke="#6e7681" marker-end="url(#a1)"/>
+
+  <!-- ===== workers ===== -->
+  <rect x="356" y="82" width="150" height="120" rx="5" class="vio"/>
+  <text x="368" y="100" class="ttl">WORKER POOL</text>
+  <text x="368" y="113" class="dim">idempotent &#183; resumable</text>
+  <g>
+    <rect x="368" y="122" width="126" height="14" rx="2" fill="#0b0e14" stroke="#30363d"/>
+    <rect x="369" y="123" width="40" height="12" rx="1.5" fill="#a78bfa" opacity="0.5"><animate attributeName="width" values="8;124;8" dur="3.4s" repeatCount="indefinite"/></rect>
+    <text x="374" y="132" class="dim">w-01</text>
+
+    <rect x="368" y="140" width="126" height="14" rx="2" fill="#0b0e14" stroke="#30363d"/>
+    <rect x="369" y="141" width="70" height="12" rx="1.5" fill="#a78bfa" opacity="0.5"><animate attributeName="width" values="60;124;8;60" dur="4.1s" repeatCount="indefinite"/></rect>
+    <text x="374" y="150" class="dim">w-02</text>
+
+    <rect x="368" y="158" width="126" height="14" rx="2" fill="#0b0e14" stroke="#30363d"/>
+    <rect x="369" y="159" width="20" height="12" rx="1.5" fill="#a78bfa" opacity="0.5"><animate attributeName="width" values="100;8;124;100" dur="2.9s" repeatCount="indefinite"/></rect>
+    <text x="374" y="168" class="dim">w-03</text>
+
+    <rect x="368" y="176" width="126" height="14" rx="2" fill="#0b0e14" stroke="#30363d"/>
+    <rect x="369" y="177" width="90" height="12" rx="1.5" fill="#fbbf24" opacity="0.45"><animate attributeName="width" values="90;30;110;90" dur="5.2s" repeatCount="indefinite"/></rect>
+    <text x="374" y="186" class="dim">w-04 retry</text>
+  </g>
+
+  <line x1="506" y1="142" x2="524" y2="142" stroke="#6e7681" marker-end="url(#a1)"/>
+
+  <!-- ===== validate ===== -->
+  <rect x="530" y="82" width="140" height="120" rx="5" class="box"/>
+  <text x="542" y="100" class="ttl">VALIDATE</text>
+  <text x="542" y="118" class="txt">schema &#183; type &#183; range</text>
+  <text x="542" y="131" class="txt">unit &amp; encoding checks</text>
+  <text x="542" y="144" class="txt">dedupe on content hash</text>
+  <text x="542" y="157" class="txt">referential integrity</text>
+  <text x="542" y="174" class="dim">a record that fails here</text>
+  <text x="542" y="185" class="dim">never reaches an output</text>
+
+  <line x1="670" y1="142" x2="688" y2="142" stroke="#6e7681" marker-end="url(#a1)"/>
+
+  <!-- ===== extract ===== -->
+  <rect x="694" y="82" width="140" height="120" rx="5" class="box"/>
+  <text x="706" y="100" class="ttl">EXTRACT</text>
+  <text x="706" y="118" class="txt">parse &#183; decode &#183; OCR</text>
+  <text x="706" y="131" class="txt">rules first, model second</text>
+  <text x="706" y="144" class="txt">confidence per field</text>
+  <text x="706" y="157" class="txt">source span retained</text>
+  <text x="706" y="174" class="dim">every extracted value</text>
+  <text x="706" y="185" class="dim">points back at its origin</text>
+
+  <line x1="834" y1="142" x2="852" y2="142" stroke="#6e7681" marker-end="url(#a1)"/>
+
+  <!-- ===== structure ===== -->
+  <rect x="858" y="82" width="150" height="120" rx="5" class="box"/>
+  <text x="870" y="100" class="ttl">STRUCTURE</text>
+  <text x="870" y="118" class="txt">typed records</text>
+  <text x="870" y="131" class="txt">PostgreSQL &#183; Timescale</text>
+  <text x="870" y="144" class="txt">SHA-256 over raw bytes</text>
+  <text x="870" y="157" class="txt">append-only history</text>
+  <text x="870" y="174" class="dim">raw is preserved &#8212; a later</text>
+  <text x="870" y="185" class="dim">rerun re-derives, not guesses</text>
+
+  <line x1="1008" y1="142" x2="1026" y2="142" stroke="#6e7681" marker-end="url(#a1)"/>
+
+  <!-- ===== deliver ===== -->
+  <rect x="1032" y="82" width="174" height="120" rx="5" class="box"/>
+  <text x="1044" y="100" class="ttl">DELIVER</text>
+  <text x="1044" y="118" class="txt">REST / GraphQL &#183; NestJS</text>
+  <text x="1044" y="131" class="txt">ERP &amp; MES writeback</text>
+  <text x="1044" y="144" class="txt">scheduled reports</text>
+  <text x="1044" y="157" class="txt">webhooks &#183; notifications</text>
+  <text x="1044" y="174" class="dim">Docker &#183; GitHub Actions</text>
+  <text x="1044" y="185" class="dim">deploys are boring on purpose</text>
+
+  <!-- travelling packets across the main flow -->
+  <g>
+    <circle r="2.8" fill="#a78bfa"><animate attributeName="cx" values="210;1030" dur="5.5s" repeatCount="indefinite"/><animate attributeName="cy" values="142;142" dur="5.5s" repeatCount="indefinite"/></circle>
+    <circle r="2.8" fill="#5eead4"><animate attributeName="cx" values="210;1030" dur="5.5s" begin="1.8s" repeatCount="indefinite"/><animate attributeName="cy" values="142;142" dur="5.5s" begin="1.8s" repeatCount="indefinite"/></circle>
+    <circle r="2.8" fill="#7dd3fc"><animate attributeName="cx" values="210;1030" dur="5.5s" begin="3.6s" repeatCount="indefinite"/><animate attributeName="cy" values="142;142" dur="5.5s" begin="3.6s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- ===== failure paths ===== -->
+  <path d="M600 202 L600 240 L280 240 L280 208" fill="none" stroke="#fbbf24" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#a3)"/>
+  <text x="352" y="235" class="dim" fill="#fbbf24">RETRY WITH BACKOFF &#8212; transient failures are expected, not exceptional</text>
+
+  <path d="M640 202 L640 268 L700 268" fill="none" stroke="#f87171" stroke-width="1.1" marker-end="url(#a2)"/>
+  <rect x="706" y="248" width="240" height="52" rx="5" class="red"/>
+  <text x="718" y="266" class="ttl" fill="#f87171">HUMAN REVIEW QUEUE</text>
+  <text x="718" y="281" class="dim">low-confidence or contradicted records</text>
+  <text x="718" y="293" class="dim">stop here &#8212; they are never auto-accepted</text>
+
+  <path d="M946 274 L1000 274 L1000 214" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#a1)"/>
+  <text x="1010" y="278" class="dim">a corrected record</text>
+  <text x="1010" y="290" class="dim">re-enters as a new version</text>
+
+  <!-- ===== metrics ===== -->
+  <line x1="34" y1="322" x2="1206" y2="322" stroke="#1c2430"/>
+  <text x="34" y="342" class="h2">WHAT GETS MEASURED ON EVERY RUN</text>
+
+  <g>
+    <rect x="34" y="352" width="222" height="70" rx="5" class="box"/>
+    <text x="46" y="370" class="dim">THROUGHPUT</text>
+    <text x="46" y="392" fill="#a78bfa" font-size="16" font-weight="700">1 480<tspan font-size="8" fill="#6d28d9"> rec/min</tspan></text>
+    <text x="46" y="410" class="dim">measured, not a design target</text>
+
+    <rect x="266" y="352" width="222" height="70" rx="5" class="box"/>
+    <text x="278" y="370" class="dim">AUTO-ACCEPT RATE</text>
+    <text x="278" y="392" fill="#5eead4" font-size="16" font-weight="700">94.2<tspan font-size="8" fill="#0f766e"> %</tspan></text>
+    <text x="278" y="410" class="dim">the other 5.8 % goes to a person</text>
+
+    <rect x="498" y="352" width="222" height="70" rx="5" class="box"/>
+    <text x="510" y="370" class="dim">RERUN DETERMINISM</text>
+    <text x="510" y="392" fill="#34d399" font-size="16" font-weight="700">BYTE-EQUAL</text>
+    <text x="510" y="410" class="dim">same input, same output, always</text>
+
+    <rect x="730" y="352" width="222" height="70" rx="5" class="box"/>
+    <text x="742" y="370" class="dim">FAILED BATCH RECOVERY</text>
+    <text x="742" y="392" fill="#fbbf24" font-size="16" font-weight="700">RESUMABLE</text>
+    <text x="742" y="410" class="dim">no full replay to fix one record</text>
+
+    <rect x="962" y="352" width="244" height="70" rx="5" class="box"/>
+    <text x="974" y="370" class="dim">SILENT DATA LOSS</text>
+    <text x="974" y="392" fill="#f87171" font-size="16" font-weight="700">0<tspan font-size="8" fill="#991b1b"> tolerated</tspan></text>
+    <text x="974" y="410" class="dim">a dropped record raises, never logs</text>
+  </g>
+
+  <text x="34" y="452" class="dim">The interesting part of an automation is never the happy path. It is what happens on the malformed file, the API that returns 200 with an error body,</text>
+  <text x="34" y="464" class="dim">the duplicate delivered twice, and the run that dies halfway &#8212; because those are the cases that quietly destroy trust in the numbers.</text>
+</svg>
