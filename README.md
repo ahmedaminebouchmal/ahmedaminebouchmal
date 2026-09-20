@@ -98,38 +98,24 @@ industrial line, camera, direction-finding array, mixed-signal rig — and it st
 timestamps and hashes its own evidence. Add the control plane and those independent instruments
 become one correlated system. Remove it and nothing stops working.
 
-That single rule is why the roster is open-ended rather than fixed. The platform is already past
-eight nodes, and adding the next one never forces a redesign of the ones already built. It is also
+That single rule is why the roster is open-ended rather than fixed. Eight nodes exist today and the
+list is not closed — adding the next one never forces a redesign of the ones already built. It is also
 what makes the whole ecosystem agent-addressable — an expert layer can discover capabilities,
 request captures and correlate across domains it was never specifically taught, because every node
 answers the same five endpoints.
 
-<h3>The ecosystem, domain by domain</h3>
+<h3>The ecosystem, node by node</h3>
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-| Domain | What it speaks |
-|---|---|
-| **Radio & wireless** | Wi-Fi, BLE, 802.15.4, sub-GHz, wideband SDR |
-| **Vehicle networks** | isolated CAN-FD × 8–16, LIN, K-Line, Automotive Ethernet, FlexRay |
-| **Identity & secure element** | NFC, LF/HF RFID, ISO-7816, POS and debug interfaces |
-| **Control & evidence plane** | registry, time authority, authorisation, segmentation, health |
-
-</td>
-<td width="50%" valign="top">
-
-| Domain | What it speaks |
-|---|---|
-| **Vision & physical** | IP, PoE, ONVIF, RTSP, MIPI CSI-2, GMSL, edge inference |
-| **Industrial & OT** | RS-485, Modbus, OPC-UA, LoRa, industrial Ethernet, sensor I/O |
-| **Coherent RF & DF** | multi-channel coherent SDR, array sensing, direction finding |
-| **Hardware & mixed-signal** | synchronised precision acquisition, FPGA timing, side-channel |
-
-</td>
-</tr>
-</table>
+| Node | Domain | What it speaks |
+|:--:|---|---|
+| **A** | Radio &amp; wireless | Wi-Fi, BLE, 802.15.4, Thread, sub-GHz, LoRaWAN, wideband SDR |
+| **B** | Identity &amp; secure element | NFC, LF/HF RFID, ISO 14443, ISO 7816, POS, debug interfaces |
+| **C** | Vehicle networks · *flagship* | isolated CAN-FD ×8–16, LIN, K-Line, Automotive Ethernet, FlexRay, UDS |
+| **D** | Control &amp; evidence plane | registry, time authority, authorisation, segmentation, health — *the optional one* |
+| **E** | Vision &amp; physical | IP, PoE, ONVIF, RTSP, MIPI CSI-2, GMSL, edge inference |
+| **F** | Industrial &amp; OT | RS-485, Modbus RTU/TCP, OPC-UA, PROFINET, MQTT, Sparkplug B |
+| **G** | Coherent RF &amp; direction finding | multi-channel coherent SDR, array sensing, bearing estimation |
+| **H** | Hardware &amp; mixed-signal | 24-bit simultaneous ADC, FPGA timing, side-channel, power characterisation |
 
 Energy and charging, automation pipelines and the mobile layer are not separate islands either —
 they attach to the same contract and land on the same timeline. Each gets its own section below.
@@ -734,6 +720,10 @@ The gap is routinely underestimated because the schematic barely changes. The co
 ---
 
 <h2>Where each domain touches the stack</h2>
+
+This is a different cut from the node roster above. The roster lists *instruments*; this lists the
+*engineering domains I deliver in*, which is why energy, automation and the mobile layer appear here
+and the control plane does not.
 
 <div align="center">
 

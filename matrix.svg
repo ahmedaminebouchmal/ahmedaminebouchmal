@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 424" width="1240" height="424" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 550" width="1240" height="550" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
   <style>
     .hdr  { fill:#5eead4; font-size:9px; letter-spacing:1.6px; }
     .row  { fill:#c9d1d9; font-size:9.5px; }
@@ -16,7 +16,7 @@
     </linearGradient>
   </defs>
 
-  <rect width="1240" height="424" rx="10" fill="url(#mxbg)" stroke="#1c2430" stroke-width="1.5"/>
+  <rect width="1240" height="550" rx="10" fill="url(#mxbg)" stroke="#1c2430" stroke-width="1.5"/>
   <text x="34" y="36" fill="#5eead4" font-size="12" font-weight="700" letter-spacing="2.4">CAPABILITY MATRIX</text>
   <text x="34" y="53" class="sub">WHERE EACH DOMAIN TOUCHES THE STACK &#183; FILLED = PRIMARY, AMBER = WORKING, OUTLINE = ADJACENT</text>
 
@@ -114,8 +114,44 @@
     <rect x="1040" y="358" width="80" height="26" rx="4" class="on"/><circle cx="1080" cy="371" r="4" class="dot-on"/>
   </g>
 
+  <!-- Coherent RF & direction finding -->
+  <text x="34" y="416" class="row">Coherent RF &amp; direction finding</text>
+  <text x="34" y="428" class="sub">multi-channel coherent SDR, array sensing, bearing</text>
+  <g>
+    <rect x="430" y="400" width="80" height="26" rx="4" class="mid"/><circle cx="470" cy="413" r="4" class="dot-mid"/>
+    <rect x="550" y="400" width="80" height="26" rx="4" class="mid"/><circle cx="590" cy="413" r="4" class="dot-mid"/>
+    <rect x="670" y="400" width="80" height="26" rx="4" class="on"/><circle cx="710" cy="413" r="4" class="dot-on"/>
+    <rect x="790" y="400" width="80" height="26" rx="4" class="on"/><circle cx="830" cy="413" r="4" class="dot-on"/>
+    <rect x="910" y="400" width="80" height="26" rx="4" class="mid"/><circle cx="950" cy="413" r="4" class="dot-mid"/>
+    <rect x="1040" y="400" width="80" height="26" rx="4" class="cell"/><circle cx="1080" cy="413" r="4" class="dot-off"/>
+  </g>
+
+  <!-- Hardware & mixed-signal -->
+  <text x="34" y="458" class="row">Hardware &amp; mixed-signal</text>
+  <text x="34" y="470" class="sub">24-bit simultaneous ADC, FPGA timing, side-channel</text>
+  <g>
+    <rect x="430" y="442" width="80" height="26" rx="4" class="on"/><circle cx="470" cy="455" r="4" class="dot-on"/>
+    <rect x="550" y="442" width="80" height="26" rx="4" class="on"/><circle cx="590" cy="455" r="4" class="dot-on"/>
+    <rect x="670" y="442" width="80" height="26" rx="4" class="on"/><circle cx="710" cy="455" r="4" class="dot-on"/>
+    <rect x="790" y="442" width="80" height="26" rx="4" class="mid"/><circle cx="830" cy="455" r="4" class="dot-mid"/>
+    <rect x="910" y="442" width="80" height="26" rx="4" class="mid"/><circle cx="950" cy="455" r="4" class="dot-mid"/>
+    <rect x="1040" y="442" width="80" height="26" rx="4" class="cell"/><circle cx="1080" cy="455" r="4" class="dot-off"/>
+  </g>
+
+  <!-- Mobile & connected product -->
+  <text x="34" y="500" class="row">Mobile &amp; connected product</text>
+  <text x="34" y="512" class="sub">Flutter, React Native, Kotlin, Swift, BLE, OTA</text>
+  <g>
+    <rect x="430" y="484" width="80" height="26" rx="4" class="cell"/><circle cx="470" cy="497" r="4" class="dot-off"/>
+    <rect x="550" y="484" width="80" height="26" rx="4" class="cell"/><circle cx="590" cy="497" r="4" class="dot-off"/>
+    <rect x="670" y="484" width="80" height="26" rx="4" class="mid"/><circle cx="710" cy="497" r="4" class="dot-mid"/>
+    <rect x="790" y="484" width="80" height="26" rx="4" class="on"/><circle cx="830" cy="497" r="4" class="dot-on"/>
+    <rect x="910" y="484" width="80" height="26" rx="4" class="on"/><circle cx="950" cy="497" r="4" class="dot-on"/>
+    <rect x="1040" y="484" width="80" height="26" rx="4" class="on"/><circle cx="1080" cy="497" r="4" class="dot-on"/>
+  </g>
+
   <!-- sweep -->
-  <rect x="430" y="100" width="2" height="292" fill="#5eead4" opacity="0.25">
+  <rect x="430" y="100" width="2" height="418" fill="#5eead4" opacity="0.25">
     <animate attributeName="x" values="430;1118;430" dur="9s" repeatCount="indefinite"/>
   </rect>
 </svg>
