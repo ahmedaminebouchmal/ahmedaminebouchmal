@@ -57,9 +57,9 @@
 <table>
 <tr>
 <td align="center" width="20%">
-<h3>8</h3>
+<h3>8+</h3>
 <sub><b>INSTRUMENT NODES</b></sub><br>
-<sub>each one standalone</sub>
+<sub>open roster, each standalone</sub>
 </td>
 <td align="center" width="20%">
 <h3>5</h3>
@@ -93,14 +93,47 @@
 <b>Every node is a complete instrument. The control plane must never become a dependency.</b>
 </blockquote>
 
-Take the automotive node to a bench with nothing but a laptop — it still captures, timestamps and
-hashes its own evidence. Add the control plane and eight independent instruments become one
-correlated system. Remove it and nothing stops working.
+Take *any* node to a bench with nothing but a laptop — radio, vehicle bus, identity reader,
+industrial line, camera, direction-finding array, mixed-signal rig — and it still captures,
+timestamps and hashes its own evidence. Add the control plane and those independent instruments
+become one correlated system. Remove it and nothing stops working.
 
-That single rule is why the platform scales sideways: adding a ninth node never forces a redesign of
-the other eight. It's also what makes the whole thing agent-addressable — an expert layer can
-discover capabilities, request captures and correlate across domains, because every node answers the
-same five endpoints.
+That single rule is why the roster is open-ended rather than fixed. The platform is already past
+eight nodes, and adding the next one never forces a redesign of the ones already built. It is also
+what makes the whole ecosystem agent-addressable — an expert layer can discover capabilities,
+request captures and correlate across domains it was never specifically taught, because every node
+answers the same five endpoints.
+
+<h3>The ecosystem, domain by domain</h3>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+| Domain | What it speaks |
+|---|---|
+| **Radio & wireless** | Wi-Fi, BLE, 802.15.4, sub-GHz, wideband SDR |
+| **Vehicle networks** | isolated CAN-FD × 8–16, LIN, K-Line, Automotive Ethernet, FlexRay |
+| **Identity & secure element** | NFC, LF/HF RFID, ISO-7816, POS and debug interfaces |
+| **Control & evidence plane** | registry, time authority, authorisation, segmentation, health |
+
+</td>
+<td width="50%" valign="top">
+
+| Domain | What it speaks |
+|---|---|
+| **Vision & physical** | IP, PoE, ONVIF, RTSP, MIPI CSI-2, GMSL, edge inference |
+| **Industrial & OT** | RS-485, Modbus, OPC-UA, LoRa, industrial Ethernet, sensor I/O |
+| **Coherent RF & DF** | multi-channel coherent SDR, array sensing, direction finding |
+| **Hardware & mixed-signal** | synchronised precision acquisition, FPGA timing, side-channel |
+
+</td>
+</tr>
+</table>
+
+Energy and charging, automation pipelines and the mobile layer are not separate islands either —
+they attach to the same contract and land on the same timeline. Each gets its own section below.
+None of them is the platform; all of them are nodes on it.
 
 <details>
 <summary><b>&nbsp;Why a mandatory control plane would have been the easier — and wrong — design</b></summary>
