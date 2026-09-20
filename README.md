@@ -1,9 +1,4 @@
-<div align="center">
-
-<img src="./one-system.svg" alt="One Body, One Mind — unified scientific system" width="100%">
-
-<br>
-
-<img src="./mathematical-field.svg" alt="Mathematical field — quantum, representation, fields, geometry and verification" width="100%">
-
-</div>
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/continuum.svg#still">
+  <img src="./assets/continuum.svg" alt="Matter, life and the limits of knowledge — an illustrated scientific and philosophical atlas." width="100%">
+</picture>

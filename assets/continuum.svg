@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="2000" viewBox="0 0 1200 2000" role="img" aria-labelledby="title description">
+<title id="title">Matter, life and the limits of knowledge</title>
+<desc id="description">An animated conceptual atlas, not experimental results or a unified theory. Curved spacetime, a schematic nucleus and probability cloud, reaction energetics, open biochemical networks, laboratory measurement and question-preserving models are distinct views. Connections express inquiry and correspondence, not a literal causal history of the universe. Atomic clouds are not electron trajectories. Qadar and ghayb are presented separately as theological reflection, not quantum variables or scientific predictions. All motion is decorative and stops when reduced motion is requested.</desc>
+<metadata>
+Scientific notes: Einstein field equation uses spacetime indices mu and nu and kappa=8*pi*G/c^4. The wavefunction illustration represents normalized single-particle probability density, not a many-body simulation. Reaction Gibbs energy uses absolute temperature and a dimensionless activity quotient. The open reaction-network equation assumes a well-mixed fixed-volume model with a defined stoichiometric matrix and external flux. The representation relation is a research acceptance contract requiring a declared question, domain, time horizon and error metric; it is not a proved universal identity. Proof judgements are relative to their premises.
+References: https://openstax.org/books/university-physics-volume-3/pages/7-1-wave-functions ; https://openstax.org/books/chemistry-2e/pages/16-4-free-energy ; https://proceedings.mlr.press/v115/beckers20a.html .
+</metadata>
+<defs>
+<linearGradient id="spectrum" x1="0" x2="1"><stop stop-color="#e6bb79"/><stop offset=".32" stop-color="#e4907e"/><stop offset=".65" stop-color="#c0a4df"/><stop offset="1" stop-color="#89c6ac"/></linearGradient>
+<radialGradient id="warm"><stop stop-color="#e6bb79" stop-opacity=".2"/><stop offset="1" stop-color="#e6bb79" stop-opacity="0"/></radialGradient>
+<radialGradient id="violet"><stop stop-color="#c0a4df" stop-opacity=".32"/><stop offset="1" stop-color="#c0a4df" stop-opacity="0"/></radialGradient>
+<radialGradient id="green"><stop stop-color="#89c6ac" stop-opacity=".23"/><stop offset="1" stop-color="#89c6ac" stop-opacity="0"/></radialGradient>
+<radialGradient id="nucleus"><stop stop-color="#ffe1a9"/><stop offset="1" stop-color="#bd7952"/></radialGradient>
+<pattern id="grain" width="31" height="31" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".6" fill="#ece2ce" opacity=".11"/></pattern>
+<clipPath id="frame"><rect width="1200" height="2000" rx="28"/></clipPath>
+<clipPath id="scope"><rect x="91" y="1240" width="405" height="142" rx="8"/></clipPath>
+<style>
+text{font-family:Arial,"DejaVu Sans",sans-serif}
+.serif{font-family:Georgia,"DejaVu Serif",serif}
+.math{font-family:"DejaVu Serif",Georgia,serif}
+.kicker{letter-spacing:3px;font-size:15px;font-weight:600}
+.wave{stroke-dasharray:32 18;animation:flow 10s linear infinite}
+.wave2{stroke-dasharray:5 19;animation:flow 17s linear infinite reverse}
+.breathe{transform-box:fill-box;transform-origin:center;animation:breathe 7s ease-in-out infinite}
+.rotor{animation:rotate 35s linear infinite;transform-origin:0px 0px}
+.slow{animation:rotate 55s linear infinite reverse;transform-origin:0px 0px}
+.signal{animation:signal 6s ease-in-out infinite}
+.scan{animation:scan 7s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-300}}
+@keyframes rotate{to{transform:rotate(360deg)}}
+@keyframes breathe{50%{transform:scale(1.05);opacity:.75}}
+@keyframes signal{0%,100%{opacity:.38}45%,60%{opacity:1}}
+@keyframes scan{from{transform:translateX(-190px)}to{transform:translateX(220px)}}
+#still:target .wave,#still:target .wave2,#still:target .breathe,#still:target .rotor,#still:target .slow,#still:target .signal,#still:target .scan{animation:none!important;transform:none!important;opacity:1}
+@media(prefers-reduced-motion:reduce){.wave,.wave2,.breathe,.rotor,.slow,.signal,.scan{animation:none!important;transform:none!important;opacity:1}}
+</style>
+</defs>
+<g id="still" clip-path="url(#frame)">
+<rect width="1200" height="2000" fill="#141818"/>
+<rect width="1200" height="2000" fill="url(#grain)"/>
+<ellipse cx="1060" cy="160" rx="400" ry="290" fill="url(#warm)"/>
+<ellipse cx="865" cy="720" rx="340" ry="450" fill="url(#violet)" opacity=".28"/>
+<ellipse cx="130" cy="1020" rx="450" ry="470" fill="url(#green)" opacity=".4"/>
+<path d="M60 40 H1140" stroke="url(#spectrum)" stroke-width="3"/>
+
+<text x="60" y="88" font-size="15" fill="#b1b2a9" text-anchor="start" class="kicker">MATTER  /  LIFE  /  KNOWLEDGE</text>
+<text x="60" y="165" font-size="54" fill="#f2ebdf" text-anchor="start" class="serif">The world exceeds</text>
+<text x="60" y="230" font-size="54" fill="#f2ebdf" text-anchor="start" class="serif">its description.</text>
+<text x="62" y="282" font-size="15" fill="#b1b2a9" text-anchor="start" letter-spacing="2">PHYSICAL LAWS · LIVING SYSTEMS · OPEN QUESTIONS</text>
+<g transform="translate(995 175)">
+<ellipse rx="110" ry="46" transform="rotate(0)" fill="none" stroke="url(#spectrum)" stroke-width="1.1" opacity=".5"/>
+<ellipse rx="110" ry="46" transform="rotate(35)" fill="none" stroke="url(#spectrum)" stroke-width="1.1" opacity=".5"/>
+<ellipse rx="110" ry="46" transform="rotate(70)" fill="none" stroke="url(#spectrum)" stroke-width="1.1" opacity=".5"/>
+<ellipse rx="110" ry="46" transform="rotate(105)" fill="none" stroke="url(#spectrum)" stroke-width="1.1" opacity=".5"/>
+<g class="rotor"><circle cx="110" cy="0" r="4" fill="#e6bb79"/><circle cx="-110" cy="0" r="3" fill="#89c6ac"/></g></g>
+<path d="M600 350 C556 485 640 615 600 760 S560 1045 600 1165 S640 1405 600 1545" fill="none" stroke="#666259" stroke-width="1" />
+<path d="M600 350 C556 485 640 615 600 760 S560 1045 600 1165 S640 1405 600 1545" fill="none" stroke="#e6bb79" stroke-width="2" class="wave2" opacity=".7"/>
+<circle cx="600" cy="360" r="4" fill="#89c6ac" />
+<circle cx="600" cy="775" r="4" fill="#89c6ac" />
+<circle cx="600" cy="1185" r="4" fill="#89c6ac" />
+<circle cx="600" cy="1545" r="4" fill="#89c6ac" />
+<text x="60" y="365" font-size="16" fill="#e6bb79" text-anchor="start" class="kicker">01  /  GEOMETRY</text>
+<text x="60" y="406" font-size="28" fill="#f2ebdf" text-anchor="start" >Spacetime &amp; curvature</text>
+<g transform="translate(83 458)">
+<path d="M0 0 C110 -42 210 95 420 10" fill="none" stroke="#e6bb79" stroke-width="1" opacity=".36"/>
+<path d="M0 26 C110 -16 210 121 420 36" fill="none" stroke="#e6bb79" stroke-width="1" opacity=".36"/>
+<path d="M0 52 C110 10 210 147 420 62" fill="none" stroke="#e6bb79" stroke-width="1" opacity=".36"/>
+<path d="M0 78 C110 36 210 173 420 88" fill="none" stroke="#e6bb79" stroke-width="1" opacity=".36"/>
+<path d="M0 104 C110 62 210 199 420 114" fill="none" stroke="#e6bb79" stroke-width="1" opacity=".36"/>
+<path d="M0 130 C110 88 210 225 420 140" fill="none" stroke="#e6bb79" stroke-width="1" opacity=".36"/>
+<path d="M0 156 C110 114 210 251 420 166" fill="none" stroke="#e6bb79" stroke-width="1" opacity=".36"/>
+<path d="M0 -15 C-53 80 44 115 -5 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M38 -15 C-15 80 82 115 33 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M76 -15 C23 80 120 115 71 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M114 -15 C61 80 158 115 109 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M152 -15 C99 80 196 115 147 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M190 -15 C137 80 234 115 185 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M228 -15 C175 80 272 115 223 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M266 -15 C213 80 310 115 261 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M304 -15 C251 80 348 115 299 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M342 -15 C289 80 386 115 337 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M380 -15 C327 80 424 115 375 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<path d="M418 -15 C365 80 462 115 413 182" fill="none" stroke="#c0a4df" stroke-width="1" opacity=".38"/>
+<g transform="translate(230 87)"><g class="breathe">
+<ellipse rx="29.700000000000003" ry="13.64" fill="none" stroke="#e6bb79" opacity=".4"/>
+<ellipse rx="51.300000000000004" ry="23.56" fill="none" stroke="#e6bb79" opacity=".4"/>
+<ellipse rx="74.25" ry="34.1" fill="none" stroke="#e6bb79" opacity=".4"/>
+<circle cx="0" cy="0" r="7" fill="#e6bb79" />
+</g></g></g>
+<text x="60" y="694" font-size="29" fill="#f2ebdf" text-anchor="start" class="math">G<tspan baseline-shift="sub" font-size="19">μν</tspan> + Λg<tspan baseline-shift="sub" font-size="19">μν</tspan> = κT<tspan baseline-shift="sub" font-size="19">μν</tspan></text>
+<text x="60" y="726" font-size="18" fill="#b1b2a9" text-anchor="start" class="math">κ = 8πG/c⁴ · classical spacetime</text>
+<text x="658" y="365" font-size="16" fill="#c0a4df" text-anchor="start" class="kicker">02  /  QUANTUM MATTER</text>
+<text x="658" y="406" font-size="28" fill="#f2ebdf" text-anchor="start" >Nucleus &amp; probability</text>
+<g transform="translate(915 545)">
+<ellipse rx="168" ry="120" fill="url(#violet)" class="breathe"/>
+<g transform="rotate(-25)"><g class="breathe"><ellipse cx="-59" cy="0" rx="69" ry="41" fill="#c0a4df" fill-opacity=".12" stroke="#c0a4df" stroke-opacity=".42"/><ellipse cx="59" cy="0" rx="69" ry="41" fill="#c0a4df" fill-opacity=".12" stroke="#c0a4df" stroke-opacity=".42"/></g></g>
+<g transform="rotate(35)"><g class="breathe"><ellipse cx="-59" cy="0" rx="69" ry="41" fill="#89c6ac" fill-opacity=".12" stroke="#89c6ac" stroke-opacity=".42"/><ellipse cx="59" cy="0" rx="69" ry="41" fill="#89c6ac" fill-opacity=".12" stroke="#89c6ac" stroke-opacity=".42"/></g></g>
+<circle cx="-13" cy="-9" r="14" fill="#e6bb79" stroke="#252827" stroke-width="2"/>
+<circle cx="10" cy="-13" r="14" fill="#e4907e" stroke="#252827" stroke-width="2"/>
+<circle cx="21" cy="8" r="13" fill="#e6bb79" stroke="#252827" stroke-width="2"/>
+<circle cx="-2" cy="15" r="14" fill="#e4907e" stroke="#252827" stroke-width="2"/>
+<circle cx="-24" cy="10" r="12" fill="#c0a4df" stroke="#252827" stroke-width="2"/>
+<circle cx="0" cy="0" r="13" fill="#e8d2a6" stroke="#252827" stroke-width="2"/>
+<circle cx="-145" cy="-18" r="2.5" fill="#89c6ac" class="signal"/>
+<circle cx="-110" cy="63" r="2.5" fill="#c0a4df" class="signal"/>
+<circle cx="119" cy="-73" r="2.5" fill="#e6bb79" class="signal"/>
+<circle cx="137" cy="39" r="2.5" fill="#89c6ac" class="signal"/>
+<circle cx="-62" cy="-91" r="2.5" fill="#c0a4df" class="signal"/>
+<circle cx="50" cy="98" r="2.5" fill="#e4907e" class="signal"/>
+</g>
+<text x="658" y="694" font-size="29" fill="#f2ebdf" text-anchor="start" class="math">iℏ ∂ₜψ = Ĥψ</text>
+<text x="658" y="726" font-size="18" fill="#b1b2a9" text-anchor="start" class="math">p(r,t) = |ψ(r,t)|² · normalized state</text>
+<path d="M60 760 L535 760" fill="none" stroke="#42453f" stroke-width="1" />
+<path d="M658 760 L1140 760" fill="none" stroke="#42453f" stroke-width="1" />
+<text x="60" y="798" font-size="16" fill="#e4907e" text-anchor="start" class="kicker">03  /  CHEMICAL CHANGE</text>
+<text x="60" y="839" font-size="28" fill="#f2ebdf" text-anchor="start" >Bonds &amp; energy landscapes</text>
+<path d="M94 1040 L499 1040" fill="none" stroke="#666259" stroke-width="1" />
+<path d="M94 1040 L94 882" fill="none" stroke="#666259" stroke-width="1" />
+<path d="M105 987 C160 995 174 990 210 927 C244 865 269 864 305 937 C342 1010 396 1020 484 1010" fill="none" stroke="#e4907e" stroke-width="3" />
+<path d="M105 987 C167 994 187 990 226 963 C260 936 285 941 317 978 C354 1012 403 1018 484 1010" fill="none" stroke="#e6bb79" stroke-width="2" class="wave"/>
+<path d="M267 887 L267 986" fill="none" stroke="#c0a4df" stroke-width="1" stroke-dasharray="4 5"/>
+<text x="282" y="920" font-size="23" fill="#c0a4df" text-anchor="start" class="math">ΔG‡</text>
+<text x="496" y="1067" font-size="14" fill="#b1b2a9" text-anchor="end" >reaction coordinate</text>
+<text x="104" y="904" font-size="18" fill="#b1b2a9" text-anchor="start" class="math">G</text>
+<text x="60" y="1113" font-size="27" fill="#f2ebdf" text-anchor="start" class="math">ΔᵣG = ΔᵣG° + RT ln Q</text>
+<text x="60" y="1145" font-size="18" fill="#b1b2a9" text-anchor="start" >Activity-based Q · fixed thermodynamic context</text>
+<text x="658" y="798" font-size="16" fill="#89c6ac" text-anchor="start" class="kicker">04  /  LIFE AS AN OPEN SYSTEM</text>
+<text x="658" y="839" font-size="28" fill="#f2ebdf" text-anchor="start" >Metabolism &amp; regulation</text>
+<g transform="translate(915 968)">
+<ellipse rx="153" ry="104" fill="#89c6ac" fill-opacity=".04" stroke="#89c6ac" stroke-width="2.5"/>
+<ellipse rx="145" ry="96" fill="none" stroke="#89c6ac" opacity=".35" stroke-dasharray="2 7"/>
+<g class="breathe"><ellipse cx="-39" cy="-8" rx="44" ry="39" fill="#c0a4df" fill-opacity=".16" stroke="#c0a4df" opacity=".8"/></g>
+<path d="M-59 -13 C-20 -33 -61 12 -23 8 M-56 1 C-18 -18 -57 27 -22 23" fill="none" stroke="#c0a4df" stroke-width="2" />
+<circle cx="106.0" cy="7.0" r="5" fill="#89c6ac" class="signal" style="animation-delay:-0.0s"/>
+<circle cx="84.0" cy="45.1" r="5" fill="#89c6ac" class="signal" style="animation-delay:-1.0s"/>
+<circle cx="40.0" cy="45.1" r="5" fill="#89c6ac" class="signal" style="animation-delay:-2.0s"/>
+<circle cx="18.0" cy="7.0" r="5" fill="#89c6ac" class="signal" style="animation-delay:-3.0s"/>
+<circle cx="40.0" cy="-31.1" r="5" fill="#89c6ac" class="signal" style="animation-delay:-4.0s"/>
+<circle cx="84.0" cy="-31.1" r="5" fill="#89c6ac" class="signal" style="animation-delay:-5.0s"/>
+<path d="M106 7 A44 44 0 1 1 18 7 A44 44 0 1 1 106 7" fill="none" stroke="#89c6ac" stroke-width="2" class="wave2"/>
+<path d="M-189 -39 H-127 M-132 -45 L-125 -39 L-132 -33" fill="none" stroke="#e6bb79" stroke-width="2" />
+<path d="M134 44 H191 M184 38 L191 44 L184 50" fill="none" stroke="#e4907e" stroke-width="2" />
+</g>
+<text x="658" y="1113" font-size="28" fill="#f2ebdf" text-anchor="start" class="math">ċ = N v(c) + jₑₓₜ</text>
+<text x="658" y="1145" font-size="18" fill="#b1b2a9" text-anchor="start" >Well-mixed reaction network · fixed volume</text>
+<path d="M60 1178 L535 1178" fill="none" stroke="#42453f" stroke-width="1" />
+<path d="M658 1178 L1140 1178" fill="none" stroke="#42453f" stroke-width="1" />
+<text x="60" y="1216" font-size="16" fill="#e6bb79" text-anchor="start" class="kicker">05  /  CONTACT WITH REALITY</text>
+<text x="60" y="1257" font-size="28" fill="#f2ebdf" text-anchor="start" >Measurement &amp; uncertainty</text>
+<rect x="82" y="1290" width="440" height="160" rx="12" fill="#101415" stroke="#44473f"/>
+<path d="M98 1320 L507 1320" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M98 1355 L507 1355" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M98 1390 L507 1390" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M98 1425 L507 1425" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M100 1302 L100 1438" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M150 1302 L150 1438" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M200 1302 L200 1438" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M250 1302 L250 1438" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M300 1302 L300 1438" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M350 1302 L350 1438" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M400 1302 L400 1438" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M450 1302 L450 1438" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M500 1302 L500 1438" fill="none" stroke="#333a35" stroke-width="1" />
+<path d="M98 1370 C125 1370 125 1320 153 1320 S180 1420 208 1420 S235 1320 263 1320 S290 1420 318 1420 S345 1320 373 1320 S400 1420 428 1420 S456 1370 507 1370" fill="none" stroke="#89c6ac" stroke-width="11" opacity=".08"/>
+<path d="M98 1370 C125 1370 125 1320 153 1320 S180 1420 208 1420 S235 1320 263 1320 S290 1420 318 1420 S345 1320 373 1320 S400 1420 428 1420 S456 1370 507 1370" fill="none" stroke="#89c6ac" stroke-width="2.5" />
+<path d="M98 1370 C125 1370 125 1320 153 1320 S180 1420 208 1420 S235 1320 263 1320 S290 1420 318 1420 S345 1320 373 1320 S400 1420 428 1420 S456 1370 507 1370" fill="none" stroke="#e6bb79" stroke-width="3" class="wave" opacity=".8"/>
+<clipPath id="scanclip"><rect x="98" y="1303" width="409" height="135"/></clipPath>
+<g clip-path="url(#scanclip)"><path d="M300 1303 V1438" stroke="#e4907e" stroke-width="2" opacity=".75" class="scan"/></g>
+<text x="60" y="1498" font-size="28" fill="#f2ebdf" text-anchor="start" class="math">y(t) = ℋ[x(t)] + ε(t)</text>
+<text x="60" y="1530" font-size="18" fill="#b1b2a9" text-anchor="start" >Sensor → calibration → signal → evidence</text>
+<text x="658" y="1216" font-size="16" fill="#c0a4df" text-anchor="start" class="kicker">06  /  PRESERVE THE QUESTION</text>
+<text x="658" y="1257" font-size="28" fill="#f2ebdf" text-anchor="start" >Models, proof &amp; revision</text>
+<circle cx="731" cy="1315" r="37" fill="#1e2423" stroke="#e6bb79" stroke-opacity=".5"/>
+<text x="731" y="1322" font-size="22" fill="#f2ebdf" text-anchor="middle" class="math">x</text>
+<circle cx="1059" cy="1315" r="37" fill="#1e2423" stroke="#e6bb79" stroke-opacity=".5"/>
+<text x="1059" y="1322" font-size="22" fill="#f2ebdf" text-anchor="middle" class="math">Fₜ(x)</text>
+<circle cx="731" cy="1421" r="37" fill="#1e2423" stroke="#89c6ac" stroke-opacity=".5"/>
+<text x="731" y="1428" font-size="22" fill="#f2ebdf" text-anchor="middle" class="math">R(x)</text>
+<circle cx="1059" cy="1421" r="37" fill="#1e2423" stroke="#89c6ac" stroke-opacity=".5"/>
+<text x="1059" y="1428" font-size="22" fill="#f2ebdf" text-anchor="middle" class="math">F̃ₜ(Rx)</text>
+<path d="M778 1314 H1014 M1007 1308 L1014 1314 L1007 1320" fill="none" stroke="#e6bb79" stroke-width="1.5" />
+<path d="M778 1420 H1014 M1007 1414 L1014 1420 L1007 1426" fill="none" stroke="#89c6ac" stroke-width="1.5" />
+<path d="M731 1360 V1381 M725 1374 L731 1381 L737 1374" fill="none" stroke="#c0a4df" stroke-width="1.5" />
+<path d="M1059 1360 V1381 M1053 1374 L1059 1381 L1065 1374" fill="none" stroke="#c0a4df" stroke-width="1.5" />
+<text x="895" y="1378" font-size="18" fill="#b1b2a9" text-anchor="middle" >compare · refine</text>
+<text x="658" y="1498" font-size="27" fill="#f2ebdf" text-anchor="start" class="math">Q ∘ Fₜ ≈ε Q̃ ∘ F̃ₜ ∘ R</text>
+<text x="658" y="1530" font-size="17" fill="#b1b2a9" text-anchor="start" >A scoped research contract, not a universal identity</text>
+<path d="M60 1571 L1140 1571" fill="none" stroke="#565145" stroke-width="1" />
+<text x="60" y="1620" font-size="15" fill="#e6bb79" text-anchor="start" class="kicker">FUTURE  /  POSSIBILITY  /  LIMITS</text>
+<text x="60" y="1668" font-size="32" fill="#f2ebdf" text-anchor="start" class="serif">Prediction is conditional.</text>
+<text x="60" y="1702" font-size="19" fill="#b1b2a9" text-anchor="start" >Observation → inference → test → revision</text>
+<g transform="translate(838 1670)">
+<path d="M-132 0 C-35 0 -25 -73 203 -73" fill="none" stroke="#c0a4df" stroke-width="1.4" opacity=".3"/>
+<path d="M-132 0 C-35 0 -25 -73 203 -73" fill="none" stroke="#c0a4df" stroke-width="2" class="wave"/>
+<circle cx="205" cy="-73" r="3" fill="#c0a4df" />
+<path d="M-132 0 C-35 0 -25 -32 203 -32" fill="none" stroke="#e6bb79" stroke-width="1.4" opacity=".3"/>
+<path d="M-132 0 C-35 0 -25 -32 203 -32" fill="none" stroke="#e6bb79" stroke-width="2" class="wave"/>
+<circle cx="205" cy="-32" r="3" fill="#e6bb79" />
+<path d="M-132 0 C-35 0 -25 27 203 27" fill="none" stroke="#89c6ac" stroke-width="1.4" opacity=".3"/>
+<path d="M-132 0 C-35 0 -25 27 203 27" fill="none" stroke="#89c6ac" stroke-width="2" class="wave"/>
+<circle cx="205" cy="27" r="3" fill="#89c6ac" />
+<path d="M-132 0 C-35 0 -25 73 203 73" fill="none" stroke="#e4907e" stroke-width="1.4" opacity=".3"/>
+<path d="M-132 0 C-35 0 -25 73 203 73" fill="none" stroke="#e4907e" stroke-width="2" class="wave"/>
+<circle cx="205" cy="73" r="3" fill="#e4907e" />
+<circle cx="-132" cy="0" r="6" fill="#f2ebdf" />
+</g>
+<rect x="60" y="1757" width="1080" height="143" rx="14" fill="#e6bb79" fill-opacity=".035" stroke="#8e7958" stroke-opacity=".5"/>
+<text x="90" y="1800" font-size="18" fill="#e6bb79" text-anchor="start" letter-spacing="3">QADAR · GHAYB</text>
+<text x="90" y="1840" font-size="24" fill="#f2ebdf" text-anchor="start" class="serif">Divine decree · the unseen</text>
+<text x="90" y="1871" font-size="18" fill="#b1b2a9" text-anchor="start" >Theological reflection — distinct from physical models and prediction.</text>
+<text x="60" y="1946" font-size="13" fill="#b1b2a9" text-anchor="start" letter-spacing="1.1">DIAGRAMS ARE SCHEMATIC · MOTION IS ILLUSTRATIVE · NO CLAIM OF A UNIFIED THEORY</text>
+<path d="M60 1974 H1140" stroke="url(#spectrum)" stroke-width="2"/></g></svg>
