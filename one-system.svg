@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">One Body, One Mind — unified scientific system</title>
+<desc id="desc">A single-state architecture connecting reality, measurement, representation, memory, reasoning, verification, control and action.</desc>
+<defs>
+  <linearGradient id="core" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0%" stop-color="#7c3aed"/>
+    <stop offset="48%" stop-color="#2563eb"/>
+    <stop offset="100%" stop-color="#0891b2"/>
+  </linearGradient>
+  <linearGradient id="edge" x1="0" x2="1">
+    <stop offset="0%" stop-color="#8b5cf6" stop-opacity=".18"/>
+    <stop offset="50%" stop-color="#38bdf8" stop-opacity=".72"/>
+    <stop offset="100%" stop-color="#22d3ee" stop-opacity=".18"/>
+  </linearGradient>
+  <radialGradient id="halo">
+    <stop offset="0%" stop-color="#60a5fa" stop-opacity=".22"/>
+    <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="10" stdDeviation="18" flood-opacity=".16"/>
+  </filter>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+    <path d="M0,0 L10,5 L0,10 Z" fill="#60a5fa"/>
+  </marker>
+  <style>
+    .bg{fill:#f8fafc}.panel{fill:#ffffff;stroke:#dbe4f0}.ink{fill:#0f172a}.muted{fill:#526179}.line{stroke:#b8c7db}.soft{fill:#eef4fb}
+    .accent{fill:#2563eb}.accent2{fill:#0891b2}
+    text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#070b14}.panel{fill:#0d1422;stroke:#23324b}.ink{fill:#eef5ff}.muted{fill:#95a6bf}.line{stroke:#334763}.soft{fill:#111b2c}
+      .accent{fill:#7dd3fc}.accent2{fill:#67e8f9}
+    }
+  </style>
+</defs>
+
+<rect class="bg" width="1200" height="760" rx="32"/>
+<circle cx="600" cy="372" r="255" fill="url(#halo)"/>
+
+<text x="600" y="70" text-anchor="middle" class="ink" font-size="15" font-weight="700" letter-spacing="5">ONE BODY · ONE MIND</text>
+<text x="600" y="105" text-anchor="middle" class="muted" font-size="13" letter-spacing="2">ONE STATE · MANY REPRESENTATIONS · CLOSED LOOP</text>
+
+<!-- outer orbit -->
+<ellipse cx="600" cy="370" rx="410" ry="224" fill="none" class="line" stroke-width="1.2" stroke-dasharray="4 8" opacity=".75"/>
+<ellipse cx="600" cy="370" rx="305" ry="165" fill="none" class="line" stroke-width="1" opacity=".35"/>
+
+<!-- connections -->
+<g fill="none" stroke="url(#edge)" stroke-width="2.2" marker-end="url(#arrow)">
+  <path d="M230 250 C320 205 410 226 481 295"/>
+  <path d="M481 295 C520 262 552 246 600 240"/>
+  <path d="M600 240 C652 246 690 262 727 296"/>
+  <path d="M727 296 C802 230 888 210 970 250"/>
+  <path d="M970 250 C1016 334 1018 418 970 505"/>
+  <path d="M970 505 C875 553 793 539 724 468"/>
+  <path d="M724 468 C683 502 651 519 600 524"/>
+  <path d="M600 524 C548 518 516 501 476 468"/>
+  <path d="M476 468 C401 540 316 554 230 505"/>
+  <path d="M230 505 C183 417 183 336 230 250"/>
+</g>
+
+<!-- center -->
+<circle cx="600" cy="382" r="118" fill="url(#core)" filter="url(#shadow)"/>
+<circle cx="600" cy="382" r="91" fill="none" stroke="#fff" stroke-opacity=".25"/>
+<circle cx="600" cy="382" r="62" fill="none" stroke="#fff" stroke-opacity=".20" stroke-dasharray="3 6"/>
+<text x="600" y="361" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" letter-spacing="3">GLOBAL STATE</text>
+<text x="600" y="401" text-anchor="middle" fill="#fff" font-size="28" font-weight="800">xₜ</text>
+<text x="600" y="430" text-anchor="middle" fill="#dbeafe" font-size="12">preserve what changes the answer</text>
+
+<!-- nodes helper -->
+<g filter="url(#shadow)">
+  <g transform="translate(120,195)">
+    <rect class="panel" width="220" height="92" rx="18"/>
+    <text x="20" y="30" class="muted" font-size="10" font-weight="700" letter-spacing="2">01</text>
+    <text x="20" y="55" class="ink" font-size="17" font-weight="800">REALITY</text>
+    <text x="20" y="76" class="muted" font-size="11">physical · observed · external</text>
+  </g>
+  <g transform="translate(365,158)">
+    <rect class="panel" width="220" height="92" rx="18"/>
+    <text x="20" y="30" class="muted" font-size="10" font-weight="700" letter-spacing="2">02</text>
+    <text x="20" y="55" class="ink" font-size="17" font-weight="800">MEASURE</text>
+    <text x="20" y="76" class="muted" font-size="11">signal · uncertainty · time</text>
+  </g>
+  <g transform="translate(615,158)">
+    <rect class="panel" width="220" height="92" rx="18"/>
+    <text x="20" y="30" class="muted" font-size="10" font-weight="700" letter-spacing="2">03</text>
+    <text x="20" y="55" class="ink" font-size="17" font-weight="800">REPRESENT</text>
+    <text x="20" y="76" class="muted" font-size="11">domain · assumptions · structure</text>
+  </g>
+  <g transform="translate(860,195)">
+    <rect class="panel" width="220" height="92" rx="18"/>
+    <text x="20" y="30" class="muted" font-size="10" font-weight="700" letter-spacing="2">04</text>
+    <text x="20" y="55" class="ink" font-size="17" font-weight="800">MEMORY</text>
+    <text x="20" y="76" class="muted" font-size="11">provenance · counterexample · version</text>
+  </g>
+  <g transform="translate(860,470)">
+    <rect class="panel" width="220" height="92" rx="18"/>
+    <text x="20" y="30" class="muted" font-size="10" font-weight="700" letter-spacing="2">05</text>
+    <text x="20" y="55" class="ink" font-size="17" font-weight="800">REASON</text>
+    <text x="20" y="76" class="muted" font-size="11">infer · optimize · compose</text>
+  </g>
+  <g transform="translate(615,508)">
+    <rect class="panel" width="220" height="92" rx="18"/>
+    <text x="20" y="30" class="muted" font-size="10" font-weight="700" letter-spacing="2">06</text>
+    <text x="20" y="55" class="ink" font-size="17" font-weight="800">VERIFY</text>
+    <text x="20" y="76" class="muted" font-size="11">witness · falsifier · boundary</text>
+  </g>
+  <g transform="translate(365,508)">
+    <rect class="panel" width="220" height="92" rx="18"/>
+    <text x="20" y="30" class="muted" font-size="10" font-weight="700" letter-spacing="2">07</text>
+    <text x="20" y="55" class="ink" font-size="17" font-weight="800">CONTROL</text>
+    <text x="20" y="76" class="muted" font-size="11">constraint · authority · resource</text>
+  </g>
+  <g transform="translate(120,470)">
+    <rect class="panel" width="220" height="92" rx="18"/>
+    <text x="20" y="30" class="muted" font-size="10" font-weight="700" letter-spacing="2">08</text>
+    <text x="20" y="55" class="ink" font-size="17" font-weight="800">ACT</text>
+    <text x="20" y="76" class="muted" font-size="11">bounded effect · receipt · feedback</text>
+  </g>
+</g>
+
+<!-- compact equations -->
+<g class="mono" font-size="13">
+  <rect x="408" y="292" width="384" height="42" rx="12" class="soft"/>
+  <text x="600" y="318" text-anchor="middle" class="ink">rₜ = exp(−τLₜ) qₜ</text>
+  <rect x="396" y="446" width="408" height="42" rx="12" class="soft"/>
+  <text x="600" y="472" text-anchor="middle" class="ink">Q ∘ FΔ ≈ε  Q̃ ∘ F̃Δ ∘ R</text>
+</g>
+
+<!-- lower principle -->
+<line x1="300" y1="662" x2="900" y2="662" class="line" stroke-width="1"/>
+<text x="600" y="700" text-anchor="middle" class="ink" font-size="22" font-weight="800" letter-spacing=".5">Many representations. One reality.</text>
+<text x="600" y="726" text-anchor="middle" class="muted" font-size="11" letter-spacing="1.6">MODEL-VALID ≠ REALITY-TRUE · UNKNOWN ≠ TRUE</text>
+</svg>
