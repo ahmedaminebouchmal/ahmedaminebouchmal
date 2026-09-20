@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+<title id="title">Mathematical field — quantum, geometry, fields and verification</title>
+<desc id="desc">A visual mathematical panel connecting quantum dynamics, graph propagation, field equations, geometry and verification.</desc>
+<defs>
+  <linearGradient id="qg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#8b5cf6"/>
+    <stop offset="100%" stop-color="#0ea5e9"/>
+  </linearGradient>
+  <linearGradient id="fg" x1="0" x2="1">
+    <stop offset="0%" stop-color="#14b8a6"/>
+    <stop offset="100%" stop-color="#22c55e"/>
+  </linearGradient>
+  <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <style>
+    .bg{fill:#f8fafc}.card{fill:#fff;stroke:#dbe4f0}.ink{fill:#0f172a}.muted{fill:#64748b}.grid{stroke:#cbd5e1}.faint{stroke:#e2e8f0}
+    text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+    @media(prefers-color-scheme:dark){
+      .bg{fill:#070b14}.card{fill:#0d1422;stroke:#23324b}.ink{fill:#f1f5f9}.muted{fill:#94a3b8}.grid{stroke:#40516a}.faint{stroke:#182337}
+    }
+  </style>
+</defs>
+
+<rect class="bg" width="1200" height="560" rx="32"/>
+<text x="600" y="55" text-anchor="middle" class="ink" font-size="14" font-weight="800" letter-spacing="4">A SINGLE SYSTEM · MULTIPLE MATHEMATICAL VIEWS</text>
+
+<!-- quantum card -->
+<g transform="translate(50,90)">
+  <rect class="card" width="340" height="370" rx="24"/>
+  <text x="26" y="38" class="muted" font-size="10" font-weight="700" letter-spacing="2">QUANTUM DYNAMICS</text>
+  <circle cx="170" cy="160" r="84" fill="none" stroke="#7c3aed" stroke-width="1.6"/>
+  <ellipse cx="170" cy="160" rx="84" ry="29" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity=".75"/>
+  <ellipse cx="170" cy="160" rx="28" ry="84" fill="none" stroke="#22d3ee" stroke-width="1.2" opacity=".75" transform="rotate(-22 170 160)"/>
+  <line x1="170" y1="160" x2="225" y2="104" stroke="url(#qg)" stroke-width="3.5" filter="url(#glow)"/>
+  <circle cx="225" cy="104" r="7" fill="#60a5fa"/>
+  <text x="236" y="98" class="ink" font-size="13">|ψ⟩</text>
+  <text x="170" y="286" text-anchor="middle" class="mono ink" font-size="15">ρ̇ = −(i/ℏ)[H,ρ] + 𝒟(ρ)</text>
+  <text x="170" y="319" text-anchor="middle" class="mono muted" font-size="12">E(θ)=⟨ψ(θ)|H|ψ(θ)⟩</text>
+  <text x="170" y="346" text-anchor="middle" class="mono muted" font-size="12">θ* ∈ arg min E(θ)</text>
+</g>
+
+<!-- graph / cognition card -->
+<g transform="translate(430,90)">
+  <rect class="card" width="340" height="370" rx="24"/>
+  <text x="26" y="38" class="muted" font-size="10" font-weight="700" letter-spacing="2">REPRESENTATION · INFERENCE · CONTROL</text>
+  <g stroke="#38bdf8" stroke-opacity=".6" stroke-width="1.5">
+    <line x1="74" y1="150" x2="145" y2="93"/><line x1="74" y1="150" x2="147" y2="204"/>
+    <line x1="145" y1="93" x2="226" y2="125"/><line x1="147" y1="204" x2="226" y2="125"/>
+    <line x1="147" y1="204" x2="254" y2="235"/><line x1="226" y1="125" x2="286" y2="180"/>
+    <line x1="254" y1="235" x2="286" y2="180"/>
+  </g>
+  <g fill="#0ea5e9">
+    <circle cx="74" cy="150" r="11"/><circle cx="145" cy="93" r="8"/><circle cx="147" cy="204" r="9"/>
+    <circle cx="226" cy="125" r="12"/><circle cx="254" cy="235" r="8"/><circle cx="286" cy="180" r="10"/>
+  </g>
+  <circle cx="226" cy="125" r="26" fill="none" stroke="#8b5cf6" stroke-width="1.4" stroke-dasharray="4 5"/>
+  <text x="170" y="286" text-anchor="middle" class="mono ink" font-size="15">rₜ = e^(−τLₜ) qₜ</text>
+  <text x="170" y="319" text-anchor="middle" class="mono muted" font-size="12">sₜ₊₁ = Aₜsₜ + Bqₜ − η∇V(sₜ) + Goₜ</text>
+  <text x="170" y="346" text-anchor="middle" class="mono muted" font-size="12">i* = arg maxᵢ  ΔDecisionᵢ / Costᵢ</text>
+</g>
+
+<!-- geometry/fields card -->
+<g transform="translate(810,90)">
+  <rect class="card" width="340" height="370" rx="24"/>
+  <text x="26" y="38" class="muted" font-size="10" font-weight="700" letter-spacing="2">FIELDS · GEOMETRY · CONSERVATION</text>
+  <g transform="translate(36,72)" fill="none" class="grid" stroke-width="1.2" opacity=".9">
+    <path d="M0 40 C70 10 135 70 205 40 S270 40 270 40"/>
+    <path d="M0 78 C70 48 135 108 205 78 S270 78 270 78"/>
+    <path d="M0 116 C70 86 135 146 205 116 S270 116 270 116"/>
+    <path d="M0 154 C70 124 135 184 205 154 S270 154 270 154"/>
+    <path d="M35 0 C15 65 55 135 35 205"/>
+    <path d="M92 0 C72 65 112 135 92 205"/>
+    <path d="M149 0 C129 65 169 135 149 205"/>
+    <path d="M206 0 C186 65 226 135 206 205"/>
+    <path d="M263 0 C243 65 283 135 263 205"/>
+  </g>
+  <circle cx="186" cy="176" r="10" fill="#22c55e" filter="url(#glow)"/>
+  <text x="170" y="286" text-anchor="middle" class="mono ink" font-size="14">Gμν + Λgμν = (8πG/c⁴)Tμν</text>
+  <text x="170" y="319" text-anchor="middle" class="mono muted" font-size="12">∂μFμν = μ₀Jν</text>
+  <text x="170" y="346" text-anchor="middle" class="mono muted" font-size="12">δ ∫𝓜 𝓛(φ,∂φ) dⁿx = 0</text>
+</g>
+
+<!-- verification strip -->
+<rect x="90" y="492" width="1020" height="40" rx="20" class="card"/>
+<text x="600" y="518" text-anchor="middle" class="mono ink" font-size="13">MODEL  →  WITNESS  →  FALSIFIER  →  INDEPENDENT CHECK  →  CLAIM BOUNDARY</text>
+</svg>
